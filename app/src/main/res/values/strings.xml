@@ -13,4 +13,5 @@
     <string name="accessibility_disabled">Accessibility: Disabled ⚠️</string>
     <string name="long_press_stop">Hold to reconnect</string>
     <string name="myra_full">M · Y · R · A</string>
+    <string name="wallpaper_description">MYRA video live wallpaper. Choose a wallpaper inside the MYRA app first.</string>
 </resources>

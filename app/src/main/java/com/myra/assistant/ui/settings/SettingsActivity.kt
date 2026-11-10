@@ -159,6 +159,10 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        findViewById<View>(R.id.wallpapersCard).setOnClickListener {
+            startActivity(Intent(this, com.myra.assistant.wallpaper.WallpaperActivity::class.java))
+        }
+
         findViewById<View>(R.id.securitySettingsCard).setOnClickListener {
             startActivity(Intent(this, SecuritySettingsActivity::class.java))
         }

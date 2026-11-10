@@ -6,14 +6,15 @@ import android.media.AudioTrack
 import android.os.Build
 import com.myra.assistant.utils.Constants
 import com.myra.assistant.utils.Logger
-import java.util.concurrent.ConcurrentLinkedQueue
+import java.util.concurrent.LinkedBlockingQueue
+import java.util.concurrent.TimeUnit
 
 class AudioPlayer {
     private val TAG = "PLAYER"
     private val SAMPLE_RATE = Constants.SAMPLE_RATE_OUT
 
     private var audioTrack: AudioTrack? = null
-    private val queue = ConcurrentLinkedQueue<ByteArray>()
+    private val queue = LinkedBlockingQueue<ByteArray>()
     @Volatile private var isPlaying = false
     private var playThread: Thread? = null
 
@@ -52,6 +53,7 @@ class AudioPlayer {
                 )
                 .setBufferSizeInBytes(minBuf * 4)
                 .setTransferMode(AudioTrack.MODE_STREAM)
+                .setPerformanceMode(AudioTrack.PERFORMANCE_MODE_LOW_LATENCY)
                 .build()
         } else {
             @Suppress("DEPRECATION")
@@ -83,9 +85,16 @@ class AudioPlayer {
     private fun startPlayThread() {
         playThread = Thread {
             var wasPlaying = false
+            var lastChunkAt = 0L
             while (!Thread.interrupted()) {
-                val chunk = queue.poll()
+                // Blocking poll: a chunk is picked up the instant it arrives (no 10 ms sleep granularity).
+                val chunk = try {
+                    queue.poll(15, TimeUnit.MILLISECONDS)
+                } catch (e: InterruptedException) {
+                    break
+                }
                 if (chunk != null) {
+                    lastChunkAt = System.currentTimeMillis()
                     if (!wasPlaying) {
                         wasPlaying = true
                         VoiceStateManager.setSpeaking()
@@ -99,12 +108,9 @@ class AudioPlayer {
                     } catch (e: Exception) {
                         Logger.e(TAG, "Write error: ${e.message}")
                     }
-                } else {
-                    if (wasPlaying) {
-                        wasPlaying = false
-                        onPlaybackFinished?.invoke()
-                    }
-                    Thread.sleep(10)
+                } else if (wasPlaying && System.currentTimeMillis() - lastChunkAt > 60) {
+                    wasPlaying = false
+                    onPlaybackFinished?.invoke()
                 }
             }
         }.also {
@@ -116,6 +122,11 @@ class AudioPlayer {
 
     fun playChunk(data: ByteArray) {
         if (data.isNotEmpty()) queue.offer(data)
+    }
+
+    /** Drops audio that has not been written yet (stale socket / interrupted turn). Lip-sync counters untouched. */
+    fun dropPending() {
+        queue.clear()
     }
 
     fun clearAndStop() {

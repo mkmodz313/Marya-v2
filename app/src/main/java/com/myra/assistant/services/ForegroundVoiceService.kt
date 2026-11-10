@@ -5,8 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
+import android.net.ConnectivityManager
+import android.net.Network
 import androidx.core.app.NotificationCompat
 import com.myra.assistant.R
+import com.myra.assistant.control.PhoneControl
+import com.myra.assistant.data.ChatRepository
 import com.myra.assistant.ai.AIResponseManager
 import com.myra.assistant.ai.ConversationMemory
 import com.myra.assistant.ai.IntentAnalyzer
@@ -24,6 +28,8 @@ import com.myra.assistant.websocket.GeminiWebSocketClient
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class ForegroundVoiceService : Service() {
@@ -37,6 +43,17 @@ class ForegroundVoiceService : Service() {
     private lateinit var audioFocus: AudioFocusManager
     private var geminiClient: GeminiWebSocketClient? = null
 
+    // reconnect / continuity state
+    private var reconnectJob: Job? = null
+    private var backoffMs = 1000L
+    private var lastConnectAt = 0L
+    private var networkCallback: ConnectivityManager.NetworkCallback? = null
+
+    // live transcript state for the current turn (voice -> chat)
+    private val userTranscript = StringBuilder()
+    private var assistantStarted = false
+    private var suppressAssistantText = false
+
     companion object {
         var instance: ForegroundVoiceService? = null
         var isRunning = false
@@ -47,7 +64,9 @@ class ForegroundVoiceService : Service() {
         instance = this
         isRunning = true
         startForeground(Constants.NOTIF_ID_VOICE, buildNotification())
+        ChatRepository.init(applicationContext)
         initComponents()
+        registerNetworkWatcher()
     }
 
     private fun initComponents() {
@@ -85,14 +104,24 @@ class ForegroundVoiceService : Service() {
     }
 
     private fun connectGemini(apiKey: String) {
+        // Only ONE live socket at a time: closing the old one first means it can never deliver duplicate audio.
+        geminiClient?.disconnect()
+        audioPlayer.dropPending()
+        lastConnectAt = System.currentTimeMillis()
+        userTranscript.clear()
+        assistantStarted = false
+        suppressAssistantText = false
+
         geminiClient = GeminiWebSocketClient(
             apiKey = apiKey,
             systemPrompt = buildSystemPrompt(),
             onConnected = {
+                backoffMs = 1000L
                 VoiceStateManager.setListening()
                 audioRecorder.start()
             },
             onAudioReceived = { data ->
+                // Streaming playback: every chunk goes straight to the player as soon as it arrives.
                 audioPlayer.playChunk(data)
             },
             onTextReceived = { text ->
@@ -105,38 +134,128 @@ class ForegroundVoiceService : Service() {
                             val intent = IntentAnalyzer.analyze(cmd)
                             DynamicDecisionEngine.execute(this@ForegroundVoiceService, intent)
                         }
+                    } else {
+                        ChatRepository.addAssistant(clean)
                     }
                     // Broadcast to UI
-                    sendBroadcast(Intent("MYRA_RESPONSE").putExtra("text", clean))
+                    sendBroadcast(Intent("MYRA_RESPONSE").setPackage(packageName).putExtra("text", clean))
                 }
             },
             onTurnComplete = {
+                finishTurn()
                 // Resume listening after AI finishes
                 if (!audioRecorder.isActive()) audioRecorder.start()
             },
-            onError = { msg ->
-                Logger.e(TAG, "Gemini error: $msg")
-                VoiceStateManager.setError("Reconnecting...")
-                // Auto-reconnect after delay
-                scope.launch {
-                    kotlinx.coroutines.delay(3000)
-                    geminiClient?.connect()
-                }
-            }
+            onError = { msg -> scheduleReconnect(msg) },
+            onInputTranscription = { t -> onUserTranscript(t) },
+            onOutputTranscription = { t -> onAssistantTranscript(t) },
+            onInterrupted = { audioPlayer.dropPending() },
+            onGoAway = { scheduleReconnect("server goAway") }
         )
         geminiClient?.connect()
+    }
+
+    /** Exponential back-off reconnect (1s, 2s, 4s ... 15s). One pending reconnect at a time. */
+    private fun scheduleReconnect(reason: String) {
+        Logger.e(TAG, "Gemini error: $reason")
+        VoiceStateManager.setError("Reconnecting...")
+        reconnectJob?.cancel()
+        reconnectJob = scope.launch {
+            val wait = backoffMs
+            backoffMs = (backoffMs * 2).coerceAtMost(15_000L)
+            delay(wait)
+            if (!isNetworkUp()) {
+                VoiceStateManager.setError("No internet")
+                return@launch   // the network watcher reconnects as soon as internet is back
+            }
+            val key = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+            if (key.isNotEmpty()) connectGemini(key)
+        }
+    }
+
+    private fun isNetworkUp(): Boolean {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val caps = cm.getNetworkCapabilities(cm.activeNetwork) ?: return false
+        return caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET)
+    }
+
+    private fun registerNetworkWatcher() {
+        try {
+            val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val cb = object : ConnectivityManager.NetworkCallback() {
+                override fun onAvailable(network: Network) {
+                    val connected = geminiClient?.isConnected() == true
+                    val justTried = System.currentTimeMillis() - lastConnectAt < 4000
+                    if (!connected && !justTried) {
+                        reconnectJob?.cancel()
+                        backoffMs = 1000L
+                        scope.launch {
+                            delay(400)
+                            val key = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+                            if (key.isNotEmpty()) connectGemini(key)
+                        }
+                    }
+                }
+            }
+            cm.registerDefaultNetworkCallback(cb)
+            networkCallback = cb
+        } catch (e: Exception) {
+            Logger.e(TAG, "Network watcher unavailable: ${e.message}")
+        }
+    }
+
+    // ── Voice -> chat transcripts ────────────────────────────────────────────────────────────────
+    private fun onUserTranscript(t: String) {
+        if (assistantStarted) finishTurn()
+        userTranscript.append(t)
+        ChatRepository.appendStreaming(true, t)
+    }
+
+    private fun onAssistantTranscript(t: String) {
+        if (!assistantStarted) {
+            assistantStarted = true
+            dispatchSpokenCommand()
+        }
+        if (!suppressAssistantText) ChatRepository.appendStreaming(false, t)
+    }
+
+    /** What the user said is checked for phone-control commands once the user's sentence is complete. */
+    private fun dispatchSpokenCommand() {
+        val said = userTranscript.toString().trim()
+        userTranscript.clear()
+        if (said.isEmpty()) return
+        ChatRepository.finishStreaming()
+        val out = PhoneControl.handle(applicationContext, said)
+        if (out.handled) {
+            // MYRA's own reply for this action is shown as text; Gemini's spoken wording is not duplicated in chat.
+            suppressAssistantText = true
+            ChatRepository.addAssistant(out.reply)
+        }
+    }
+
+    private fun finishTurn() {
+        if (!assistantStarted && userTranscript.isNotEmpty()) dispatchSpokenCommand()
+        ChatRepository.finishStreaming()
+        assistantStarted = false
+        suppressAssistantText = false
     }
 
     fun sendTextToGemini(text: String) {
         ConversationMemory.addUser(text)
         VoiceStateManager.setThinking()
+        assistantStarted = false
+        suppressAssistantText = false
         geminiClient?.sendTextMessage(text)
     }
+
+    fun isGeminiConnected(): Boolean = geminiClient?.isConnected() == true
 
     fun reconnectGemini() {
         val apiKey = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
         if (apiKey.isNotEmpty()) {
-            geminiClient?.disconnect()
+            GeminiWebSocketClient.resetSession()   // manual reconnect = fresh conversation on the server
+            reconnectJob?.cancel()
+            backoffMs = 1000L
             connectGemini(apiKey)
         }
     }
@@ -157,6 +276,8 @@ STRICT RULES:
   WHATSAPP_MSG <name> <message> | YOUTUBE_PLAY <query>
   SPOTIFY_PLAY <query> | FLASHLIGHT_ON | FLASHLIGHT_OFF
   VOLUME_UP | VOLUME_DOWN | SMS <name> <message>
+- EXCEPTION to the rule above: when the user asks you to open an app, website or WhatsApp chat, answer with ONE short warm sentence such as 'Sure dear! Opening WhatsApp.' (the app performs the action itself)
+- Never say a WhatsApp message was sent. After the user dictates a message, only ask: 'Shall I send it?' and wait for yes/no
 - For conversation: Reply short and natural in Hinglish
 - Address user as $userName
 - Be warm, witty, and human-like
@@ -197,6 +318,10 @@ STRICT RULES:
     override fun onDestroy() {
         isRunning = false
         instance = null
+        reconnectJob?.cancel()
+        try {
+            networkCallback?.let { (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).unregisterNetworkCallback(it) }
+        } catch (_: Exception) {}
         audioRecorder.stop()
         audioPlayer.release()
         geminiClient?.disconnect()

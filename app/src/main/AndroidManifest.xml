@@ -30,6 +30,7 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
@@ -37,6 +38,7 @@
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
+    <uses-feature android:name="android.software.live_wallpaper" android:required="false"/>
     <uses-feature android:name="android.hardware.camera" android:required="false"/>
     <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
 
@@ -97,6 +99,38 @@
             android:name=".ui.main.CallAssistantActivity"
             android:exported="false"
             android:theme="@style/Theme.Myra.Transparent"/>
+
+        <!-- CHAT (WhatsApp-style, shared voice + text history) -->
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
+        <!-- LIVE WALLPAPERS -->
+        <activity
+            android:name=".wallpaper.WallpaperActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".wallpaper.WallpaperDetailActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- REAL VIDEO LIVE WALLPAPER SERVICE (official WallpaperService API) -->
+        <service
+            android:name=".wallpaper.VideoWallpaperService"
+            android:exported="true"
+            android:label="MYRA Live Wallpaper"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/myra_wallpaper"/>
+        </service>
 
         <!-- ACCESSIBILITY SERVICE -->
         <service

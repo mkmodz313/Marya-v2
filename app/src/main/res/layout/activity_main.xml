@@ -283,7 +283,7 @@
         android:paddingTop="10dp"
         android:paddingEnd="20dp"
         android:paddingBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@id/micGroup"
+        app:layout_constraintBottom_toTopOf="@id/navWrap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -357,101 +357,154 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- ═════════════ MIC + SIDE BUTTONS ═════════════ -->
+    <!-- ═════════════ FIXED 3-BUTTON 3D NAVIGATION: CHAT · VOICE · SETTINGS ═════════════ -->
     <FrameLayout
-        android:id="@+id/micGroup"
-        android:layout_width="104dp"
-        android:layout_height="104dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@id/hintText"
+        android:id="@+id/navWrap"
+        android:layout_width="0dp"
+        android:layout_height="128dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="10dp"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
-            android:id="@+id/micGlow"
-            android:layout_width="104dp"
-            android:layout_height="104dp"
-            android:layout_gravity="center"
-            android:alpha="0.45"
-            android:background="@drawable/bg_mic_glow_neon"/>
+        <!-- glass container -->
+        <LinearLayout
+            android:id="@+id/navBar"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_nav_glass"
+            android:elevation="10dp"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:weightSum="3">
 
-        <ImageButton
-            android:id="@+id/micButton"
-            android:layout_width="82dp"
-            android:layout_height="82dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_mic_button_neon"
-            android:contentDescription="Mic"
-            android:elevation="6dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_mic_neon_off"/>
+            <LinearLayout
+                android:id="@+id/navChat"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_nav_btn"
+                android:contentDescription="Chat"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_chat_neon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:shadowColor="#FFFF2BD6"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="8"
+                    android:text="Chat"
+                    android:textColor="@color/neon_white"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <!-- spacer under the raised centre VOICE button -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <LinearLayout
+                android:id="@+id/navSettings"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="9dp"
+                android:layout_marginBottom="9dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_nav_btn"
+                android:contentDescription="Settings"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_settings"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:shadowColor="#FFFF2BD6"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="8"
+                    android:text="Settings"
+                    android:textColor="@color/neon_white"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- big centre VOICE button (same ids as before: micGroup / micGlow / micButton) -->
+        <FrameLayout
+            android:id="@+id/micGroup"
+            android:layout_width="112dp"
+            android:layout_height="112dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="14dp"
+            android:clipChildren="false"
+            android:elevation="14dp">
+
+            <View
+                android:id="@+id/micGlow"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center"
+                android:alpha="0.45"
+                android:background="@drawable/bg_mic_glow_neon"/>
+
+            <ImageButton
+                android:id="@+id/micButton"
+                android:layout_width="88dp"
+                android:layout_height="88dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_mic_button_neon"
+                android:contentDescription="Voice"
+                android:elevation="8dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_mic_neon_off"/>
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="6dp"
+            android:elevation="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:shadowColor="#FFFF2BD6"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="8"
+            android:text="Voice"
+            android:textColor="@color/neon_white"
+            android:textSize="13sp"/>
     </FrameLayout>
-
-    <ImageButton
-        android:id="@+id/chatBtn"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:background="@drawable/bg_neon_circle_btn"
-        android:contentDescription="Chat history"
-        android:padding="13dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_chat_neon"
-        app:layout_constraintBottom_toBottomOf="@id/micGroup"
-        app:layout_constraintEnd_toStartOf="@id/micGroup"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/micGroup"/>
-
-    <ImageButton
-        android:id="@+id/securityBtn"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:background="@drawable/bg_neon_circle_btn"
-        android:contentDescription="Security settings"
-        android:padding="13dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_shield_neon"
-        app:layout_constraintBottom_toBottomOf="@id/micGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
-        app:layout_constraintStart_toEndOf="@id/micGroup"
-        app:layout_constraintTop_toTopOf="@id/micGroup"/>
-
-    <TextView
-        android:id="@+id/hintText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="18dp"
-        android:fontFamily="sans-serif"
-        android:letterSpacing="0.03"
-        android:text="@string/long_press_stop"
-        android:textColor="@color/neon_white"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/bg_neon_line"
-        app:layout_constraintBottom_toBottomOf="@id/hintText"
-        app:layout_constraintEnd_toStartOf="@id/hintText"
-        app:layout_constraintHorizontal_bias="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/hintText"/>
-
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="26dp"
-        android:background="@drawable/bg_neon_line_r"
-        app:layout_constraintBottom_toBottomOf="@id/hintText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/hintText"
-        app:layout_constraintTop_toTopOf="@id/hintText"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

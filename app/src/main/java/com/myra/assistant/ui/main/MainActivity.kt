@@ -25,6 +25,7 @@ import com.myra.assistant.ui.avatar.AmbientFxView
 import com.myra.assistant.ui.avatar.AvatarMode
 import com.myra.assistant.ui.avatar.AvatarStageView
 import com.myra.assistant.ui.avatar.NeonWaveformView
+import com.myra.assistant.ui.chat.ChatActivity
 import com.myra.assistant.ui.settings.SettingsActivity
 import com.myra.assistant.utils.Constants
 import com.myra.assistant.utils.Logger
@@ -145,22 +146,34 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        // Chat button: show / hide the conversation history (same ChatAdapter as before).
-        findViewById<ImageButton>(R.id.chatBtn).setOnClickListener {
-            chatOverlay.visibility = if (chatOverlay.visibility == View.VISIBLE) View.GONE else View.VISIBLE
-            if (chatAdapter.itemCount > 0) chatRecycler.scrollToPosition(chatAdapter.itemCount - 1)
+        // Fixed 3-button navigation: CHAT (left) · VOICE (centre = micButton above) · SETTINGS (right)
+        bindNavButton(findViewById(R.id.navChat)) {
+            startActivity(Intent(this, ChatActivity::class.java))
         }
+        bindNavButton(findViewById(R.id.navSettings)) {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+        bindNavButton(micButton) { /* click handled by the existing mic listener above */ }
+    }
 
-        // Shield button: opens the existing Security settings screen (PIN / pattern / biometric / app lock).
-        findViewById<ImageButton>(R.id.securityBtn).setOnClickListener {
-            startActivity(Intent(this, SecuritySettingsActivity::class.java))
+    /** Press feedback (scale + light haptic) for the 3D navigation buttons; never replaces an existing click listener. */
+    private fun bindNavButton(v: View, onClick: () -> Unit) {
+        val hasClick = v.hasOnClickListeners()
+        if (!hasClick) v.setOnClickListener { onClick() }
+        v.setOnTouchListener { view, ev ->
+            when (ev.action) {
+                android.view.MotionEvent.ACTION_DOWN -> view.animate().scaleX(0.92f).scaleY(0.92f).setDuration(90).start()
+                android.view.MotionEvent.ACTION_UP, android.view.MotionEvent.ACTION_CANCEL ->
+                    view.animate().scaleX(1f).scaleY(1f).setDuration(140).start()
+            }
+            false
         }
     }
 
-    /** Keeps the header and bottom hint clear of the status / navigation bars (edge-to-edge scene). */
+    /** Keeps the header and the bottom navigation clear of the status / navigation bars (edge-to-edge scene). */
     private fun applySystemBarInsets() {
         val header = listOf(R.id.crownTop, R.id.batteryBlock, R.id.clockBlock).map { findViewById<View>(it) }
-        val hint = findViewById<View>(R.id.hintText)
+        val hint = findViewById<View>(R.id.navWrap)
         fun View.lp() = layoutParams as android.view.ViewGroup.MarginLayoutParams
         val topBase = header.map { it.lp().topMargin }
         val bottomBase = hint.lp().bottomMargin
