@@ -1,0 +1,186 @@
+[
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_orb_glow.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_orb_glow.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_overlay_orb.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_overlay_orb.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_img_foreground.png.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/img_foreground.png"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_app_lock.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_app_lock.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_mic_off.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_mic_off.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/mipmap_img.png.flat",
+        "source": "com.myra.assistant.app-main-46:/mipmap/img.png"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/xml_accessibility_service_config.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/xml/accessibility_service_config.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_pattern_setup.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_pattern_setup.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/xml_accessibility_config.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/xml/accessibility_config.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_mic_button.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_mic_button.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_contact_list.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_contact_list.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_settings.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_settings.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_settings.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_overlay_orb.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/overlay_orb.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_dialog_voice_passphrase.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/dialog_voice_passphrase.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_item_app_selection.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/item_app_selection.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_dialog_set_pin.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/dialog_set_pin.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_security_settings.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_security_settings.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_input_field.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_input_field.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_call_assistant.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_call_assistant.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_item_chat_user.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_fingerprint.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_fingerprint.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_accessibility_feedback_border.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/accessibility_feedback_border.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/xml_device_admin_receiver.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/xml/device_admin_receiver.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_backspace.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_backspace.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_circle_dark.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_circle_dark.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_prime_badge.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_prime_badge.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_app_selection.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_app_selection.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/mipmap-anydpi-v26_img.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/mipmap-anydpi-v26/img.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_mic_on.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_mic_on.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_chat_myra.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_chat_myra.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_gradient_mesh.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_gradient_mesh.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_myra_dot.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_myra_dot.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/xml_network_security_config.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_myra_notif.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_myra_notif.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_prime_preview.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_prime_preview.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_save_button.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_save_button.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_bg_chat_user.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/bg_chat_user.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_battery.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_battery.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_activity_main.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/drawable_ic_close.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/drawable/ic_close.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-debug-44:/layout_item_chat_myra.xml.flat",
+        "source": "com.myra.assistant.app-main-46:/layout/item_chat_myra.xml"
+    }
+]

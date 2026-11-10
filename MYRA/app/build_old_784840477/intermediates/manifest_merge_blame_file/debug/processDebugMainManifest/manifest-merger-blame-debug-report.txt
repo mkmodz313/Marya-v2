@@ -1,0 +1,480 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.myra.assistant.debug"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- ── Core Permissions ─────────────────────────────────────────────── -->
+12    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+12-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:7:5-71
+12-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:7:22-68
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:8:5-67
+13-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:8:22-64
+14    <uses-permission android:name="android.permission.READ_CONTACTS" />
+14-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:9:5-72
+14-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:9:22-69
+15    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+15-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:10:5-73
+15-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:10:22-70
+16    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+16-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:11:5-75
+16-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:11:22-72
+17    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+17-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:12:5-72
+17-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:12:22-69
+18    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+18-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:13:5-77
+18-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:13:22-74
+19    <uses-permission android:name="android.permission.CALL_PHONE" />
+19-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:14:5-69
+19-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:14:22-66
+20    <uses-permission android:name="android.permission.SEND_SMS" />
+20-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:15:5-67
+20-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:15:22-64
+21    <uses-permission android:name="android.permission.MODIFY_PHONE_STATE" />
+21-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:16:5-17:47
+21-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:16:22-74
+22
+23    <!-- ── Foreground Service Permissions ─────────────────────────────── -->
+24    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+24-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:20:5-77
+24-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:20:22-74
+25    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
+25-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:21:5-88
+25-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:21:22-85
+26    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+26-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:22:5-89
+26-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:22:22-86
+27    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+27-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:23:5-92
+27-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:23:22-89
+28
+29    <!-- ── System Permissions ───────────────────────────────────────── -->
+30    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+30-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:26:5-78
+30-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:26:22-75
+31    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+31-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:27:5-81
+31-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:27:22-78
+32    <uses-permission android:name="android.permission.CAMERA" />
+32-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:28:5-65
+32-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:28:22-62
+33    <uses-permission android:name="android.permission.FLASHLIGHT" />
+33-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:29:5-69
+33-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:29:22-66
+34    <uses-permission android:name="android.permission.VIBRATE" />
+34-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:30:5-66
+34-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:30:22-63
+35    <uses-permission android:name="android.permission.WAKE_LOCK" />
+35-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:31:5-68
+35-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:31:22-65
+36
+37    <!-- ── Connectivity Permissions ───────────────────────────────────── -->
+38    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+38-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:34:5-76
+38-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:34:22-73
+39    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+39-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:35:5-76
+39-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:35:22-73
+40    <uses-permission android:name="android.permission.BLUETOOTH" />
+40-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:36:5-68
+40-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:36:22-65
+41    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+41-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:37:5-74
+41-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:37:22-71
+42    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+42-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:38:5-76
+42-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:38:22-73
+43    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+43-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:39:5-80
+43-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:39:22-77
+44
+45    <!-- ── Storage Permissions ────────────────────────────────────────── -->
+46    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+46-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:42:5-80
+46-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:42:22-77
+47    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+47-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:43:5-81
+47-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:43:22-78
+48
+49    <!-- ── Admin & Stats ─────────────────────────────────────────────── -->
+50    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+50-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:46:5-77
+50-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:46:22-74
+51    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
+51-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:47:5-76
+51-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:47:22-73
+52    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+52-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:48:5-49:47
+52-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:48:22-75
+53    <uses-permission android:name="android.permission.USE_BIOMETRIC" /> <!-- suppress DeprecatedClassUsageInspection -->
+53-->[androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+53-->[androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+54    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+54-->[androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+54-->[androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+55
+56    <permission
+56-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+57        android:name="com.myra.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+57-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+58        android:protectionLevel="signature" />
+58-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+59
+60    <uses-permission android:name="com.myra.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" /> <!-- ── Accessibility Permission (implicit via service declaration) ── -->
+60-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+60-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+61    <application
+61-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:53:5-207:19
+62        android:allowBackup="false"
+62-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:54:9-36
+63        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+63-->[androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+64        android:debuggable="true"
+65        android:extractNativeLibs="false"
+66        android:icon="@mipmap/img"
+66-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:55:9-35
+67        android:label="MYRA"
+67-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:56:9-29
+68        android:requestLegacyExternalStorage="true"
+68-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:61:9-52
+69        android:roundIcon="@mipmap/img"
+69-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:57:9-40
+70        android:supportsRtl="true"
+70-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:58:9-35
+71        android:theme="@style/Theme.Myra"
+71-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:59:9-42
+72        android:usesCleartextTraffic="false" >
+72-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:60:9-45
+73
+74        <!-- ── Main Activity ─────────────────────────────────────────── -->
+75        <activity
+75-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:64:9-75:20
+76            android:name="com.myra.assistant.ui.main.MainActivity"
+76-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:65:13-49
+77            android:excludeFromRecents="false"
+77-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:70:13-47
+78            android:exported="true"
+78-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:66:13-36
+79            android:launchMode="singleTop"
+79-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:69:13-43
+80            android:screenOrientation="portrait"
+80-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:67:13-49
+81            android:windowSoftInputMode="adjustResize" >
+81-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:68:13-55
+82            <intent-filter>
+82-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:71:13-74:29
+83                <action android:name="android.intent.action.MAIN" />
+83-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:72:17-69
+83-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:72:25-66
+84
+85                <category android:name="android.intent.category.LAUNCHER" />
+85-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:73:17-77
+85-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:73:27-74
+86            </intent-filter>
+87        </activity>
+88
+89        <!-- ── Assist Launcher (Power Button) ────────────────────────── -->
+90        <activity
+90-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:78:9-91:20
+91            android:name="com.myra.assistant.ui.main.AssistLauncherActivity"
+91-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:79:13-59
+92            android:excludeFromRecents="true"
+92-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:81:13-46
+93            android:exported="true"
+93-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:80:13-36
+94            android:noHistory="true"
+94-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:82:13-37
+95            android:taskAffinity=""
+95-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:83:13-36
+96            android:theme="@style/Theme.Myra.Transparent" >
+96-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:84:13-58
+97            <intent-filter>
+97-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:85:13-90:29
+98                <action android:name="android.intent.action.ASSIST" />
+98-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:86:17-71
+98-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:86:25-68
+99                <action android:name="android.intent.action.VOICE_COMMAND" />
+99-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:87:17-78
+99-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:87:25-75
+100                <action android:name="android.intent.action.VOICE_ASSIST" />
+100-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:88:17-77
+100-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:88:25-74
+101
+102                <category android:name="android.intent.category.DEFAULT" />
+102-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:89:17-76
+102-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:89:27-73
+103            </intent-filter>
+104        </activity>
+105
+106        <!-- ── Call Assistant Activity ─────────────────────────────────── -->
+107        <activity
+107-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:94:9-104:46
+108            android:name="com.myra.assistant.ui.main.CallAssistantActivity"
+108-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:95:13-58
+109            android:excludeFromRecents="true"
+109-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:102:13-46
+110            android:exported="false"
+110-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:96:13-37
+111            android:launchMode="singleTask"
+111-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:104:13-44
+112            android:noHistory="true"
+112-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:103:13-37
+113            android:screenOrientation="portrait"
+113-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:101:13-49
+114            android:showOnLockScreen="true"
+114-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:98:13-44
+115            android:showWhenLocked="true"
+115-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:99:13-42
+116            android:theme="@style/Theme.Myra.Transparent"
+116-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:97:13-58
+117            android:turnScreenOn="true" />
+117-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:100:13-40
+118
+119        <!-- ── Settings Activity ───────────────────────────────────────── -->
+120        <activity
+120-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:107:9-111:52
+121            android:name="com.myra.assistant.ui.settings.SettingsActivity"
+121-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:108:13-57
+122            android:exported="false"
+122-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:109:13-37
+123            android:parentActivityName="com.myra.assistant.ui.main.MainActivity"
+123-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:110:13-63
+124            android:screenOrientation="portrait" />
+124-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:111:13-49
+125
+126        <!-- ── Security Activities ───────────────────────────────────── -->
+127        <activity
+127-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:114:9-121:51
+128            android:name="com.myra.assistant.security.AppLockActivity"
+128-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:115:13-53
+129            android:excludeFromRecents="true"
+129-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:119:13-46
+130            android:exported="false"
+130-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:116:13-37
+131            android:noHistory="true"
+131-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:120:13-37
+132            android:screenOrientation="portrait"
+132-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:121:13-49
+133            android:taskAffinity=""
+133-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:118:13-36
+134            android:theme="@style/Theme.Myra.Transparent" />
+134-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:117:13-58
+135        <activity
+135-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:123:9-126:65
+136            android:name="com.myra.assistant.security.SecuritySettingsActivity"
+136-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:124:13-62
+137            android:exported="false"
+137-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:125:13-37
+138            android:theme="@style/Theme.AppCompat.NoActionBar" />
+138-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:126:13-63
+139        <activity
+139-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:128:9-132:51
+140            android:name="com.myra.assistant.security.AppSelectionActivity"
+140-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:129:13-58
+141            android:exported="false"
+141-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:130:13-37
+142            android:screenOrientation="portrait"
+142-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:132:13-49
+143            android:theme="@style/Theme.AppCompat.NoActionBar" />
+143-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:131:13-63
+144        <activity
+144-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:134:9-138:65
+145            android:name="com.myra.assistant.security.PatternSetupActivity"
+145-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:135:13-58
+146            android:exported="false"
+146-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:136:13-37
+147            android:screenOrientation="portrait"
+147-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:137:13-49
+148            android:theme="@style/Theme.AppCompat.NoActionBar" />
+148-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:138:13-63
+149
+150        <!-- ── Device Admin Receiver ─────────────────────────────────── -->
+151        <receiver
+151-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:141:9-153:20
+152            android:name="com.myra.assistant.service.MyraDeviceAdminReceiver"
+152-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:142:13-60
+153            android:description="@string/app_name"
+153-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:144:13-51
+154            android:exported="true"
+154-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:146:13-36
+155            android:label="MYRA System Controller"
+155-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:143:13-51
+156            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+156-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:145:13-70
+157            <meta-data
+157-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:147:13-149:65
+158                android:name="android.app.device_admin"
+158-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:148:17-56
+159                android:resource="@xml/device_admin_receiver" />
+159-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:149:17-62
+160
+161            <intent-filter>
+161-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:150:13-152:29
+162                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+162-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:151:17-82
+162-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:151:25-79
+163            </intent-filter>
+164        </receiver>
+165
+166        <!-- ── Overlay Service ───────────────────────────────────────── -->
+167        <service
+167-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:156:9-159:58
+168            android:name="com.myra.assistant.service.MyraOverlayService"
+168-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:157:13-55
+169            android:exported="false"
+169-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:158:13-37
+170            android:foregroundServiceType="microphone" />
+170-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:159:13-55
+171
+172        <!-- ── Call Monitor Service ────────────────────────────────────── -->
+173        <service
+173-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:162:9-170:19
+174            android:name="com.myra.assistant.service.CallMonitorService"
+174-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:163:13-55
+175            android:exported="false"
+175-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:164:13-37
+176            android:foregroundServiceType="specialUse"
+176-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:165:13-55
+177            android:permission="android.permission.BIND_TELECOM_CONNECTION_SERVICE" >
+177-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:166:13-84
+178            <property
+178-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:167:13-169:119
+179                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_TYPE"
+179-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:168:17-73
+180                android:value="Monitoring incoming calls to provide AI assistant features during telephony events." />
+180-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:169:17-116
+181        </service>
+182
+183        <!-- ── Accessibility Service ───────────────────────────────────── -->
+184        <service
+184-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:173:9-186:19
+185            android:name="com.myra.assistant.service.AccessibilityHelperService"
+185-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:174:13-63
+186            android:canRetrieveWindowContent="true"
+186-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:177:13-52
+187            android:exported="false"
+187-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:176:13-37
+188            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+188-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:175:13-79
+189            <intent-filter>
+189-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:179:13-181:29
+190                <action android:name="android.accessibilityservice.AccessibilityService" />
+190-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:180:17-91
+190-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:180:25-89
+191            </intent-filter>
+192
+193            <meta-data
+193-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:183:13-185:63
+194                android:name="android.accessibilityservice"
+194-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:184:17-60
+195                android:resource="@xml/accessibility_config" />
+195-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:185:17-61
+196        </service>
+197
+198        <!-- ── Power Button Receiver ─────────────────────────────────── -->
+199        <receiver
+199-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:189:9-196:20
+200            android:name="com.myra.assistant.service.PowerButtonReceiver"
+200-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:190:13-56
+201            android:exported="true" >
+201-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:191:13-36
+202            <intent-filter>
+202-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:192:13-195:29
+203                <action android:name="android.intent.action.SCREEN_OFF" />
+203-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:193:17-75
+203-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:193:25-72
+204                <action android:name="android.intent.action.SCREEN_ON" />
+204-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:194:17-74
+204-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:194:25-71
+205            </intent-filter>
+206        </receiver>
+207
+208        <!-- ── Boot Receiver ─────────────────────────────────────────── -->
+209        <receiver
+209-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:199:9-205:20
+210            android:name="com.myra.assistant.service.BootReceiver"
+210-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:200:13-49
+211            android:exported="true" >
+211-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:201:13-36
+212            <intent-filter>
+212-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:202:13-204:29
+213                <action android:name="android.intent.action.BOOT_COMPLETED" />
+213-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:203:17-79
+213-->C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:203:25-76
+214            </intent-filter>
+215        </receiver>
+216
+217        <provider
+217-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+218            android:name="androidx.startup.InitializationProvider"
+218-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+219            android:authorities="com.myra.assistant.debug.androidx-startup"
+219-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+220            android:exported="false" >
+220-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+221            <meta-data
+221-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+222                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+222-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+223                android:value="androidx.startup" />
+223-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+224            <meta-data
+224-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+225                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+225-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+226                android:value="androidx.startup" />
+226-->[androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+227            <meta-data
+227-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+228                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+228-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+229                android:value="androidx.startup" />
+229-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+230        </provider>
+231
+232        <receiver
+232-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+233            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+233-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+234            android:directBootAware="false"
+234-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+235            android:enabled="true"
+235-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+236            android:exported="true"
+236-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+237            android:permission="android.permission.DUMP" >
+237-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+238            <intent-filter>
+238-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+239                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+239-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+239-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+240            </intent-filter>
+241            <intent-filter>
+241-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+242                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+242-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+242-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+243            </intent-filter>
+244            <intent-filter>
+244-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+245                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+245-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+245-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+246            </intent-filter>
+247            <intent-filter>
+247-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+248                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+248-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+248-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+249            </intent-filter>
+250        </receiver>
+251    </application>
+252
+253</manifest>

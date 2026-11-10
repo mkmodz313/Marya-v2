@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_security_settings.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_security_settings.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/item_chat_myra.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/item_chat_myra.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_app_selection.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_app_selection.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_pattern_setup.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_pattern_setup.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/item_chat_user.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/item_chat_user.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_app_lock.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_app_lock.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/dialog_set_pin.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/dialog_set_pin.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_call_assistant.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_call_assistant.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_settings.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/item_app_selection.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/item_app_selection.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/overlay_orb.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/overlay_orb.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/activity_main.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.myra.assistant.app-mergeDebugResources-43:/layout/dialog_voice_passphrase.xml",
+        "source": "com.myra.assistant.app-main-46:/layout/dialog_voice_passphrase.xml"
+    }
+]

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <!-- Orb container - Removed background and elevation for full transparency -->
+    <FrameLayout
+        android:id="@+id/orbContainer"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent">
+
+        <com.myra.assistant.ui.main.OrbAnimationView
+            android:id="@+id/overlayOrbView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <!-- Close button - Subtle background -->
+    <ImageView
+        android:id="@+id/closeOverlayBtn"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="top|end"
+        android:src="@drawable/ic_close"
+        android:padding="4dp"
+        android:alpha="0.5"
+        android:background="@drawable/bg_circle_dark" />
+
+</FrameLayout>

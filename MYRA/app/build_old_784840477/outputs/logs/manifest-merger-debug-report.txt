@@ -1,0 +1,698 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:2:1-209:12
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:2:1-209:12
+MERGED from [androidx.databinding:databinding-adapters:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\a5ec4cf950b19f497191ebeac8548091\transformed\databinding-adapters-8.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.databinding:databinding-ktx:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\183a209750aa69e829703a20686285ae\transformed\databinding-ktx-8.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.databinding:databinding-runtime:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\388560d8bc952b20ae460d082b45057c\transformed\databinding-runtime-8.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.databinding:viewbinding:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\b4bc1c33ebf5d28fb3323961159b147e\transformed\viewbinding-8.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Vikas\.gradle\caches\transforms-4\41c7b5709a6bc4cfe1dc58b8730b8037\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Vikas\.gradle\caches\transforms-4\8aa544582b30d3317a6b6aeeee1eb6f4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:17:1-29:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\f5731eecbcb8d5bdd11e7c0e4391a395\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\147d27563702f1a7d628424269cf7aa0\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Vikas\.gradle\caches\transforms-4\b5d088b9f5b7c99532801d5d28c22b9e\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Vikas\.gradle\caches\transforms-4\03f256f4bd5bb44ee2f6b487256e77ef\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\6e27bcf8bb27b35a85319308808c4c23\transformed\fragment-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\65b02d6f002409768c2af53958dea5fa\transformed\fragment-ktx-1.7.1\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.activity:activity:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\b6de015c2b5ed26fae8f473c9f0790d9\transformed\activity-1.9.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\f3b8d91c657680301ae2ab27ec95eaba\transformed\activity-ktx-1.9.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\0fcf29ddcddd45f8b4cd558347b8f8b7\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5e0c5ccfb02b79a080dd6d462de055f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\8381117fb2c15c875ef6df6f17ee256a\transformed\lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\2c666c6ecf4454ef98ecefaa2225dd01\transformed\savedstate-1.2.1\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\cd078fb0ef0dc231648923b53dcfae7b\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\ff833fbe2959c77eb7ccb969a1231107\transformed\lifecycle-service-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.ai.client.generativeai:generativeai:0.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\92431489d1a33610750c56178763f274\transformed\generativeai-0.9.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c4523e6e5160dae9c30ff0e3465b8025\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:17:1-23:12
+MERGED from [com.google.ai.client.generativeai:common:0.8.0] C:\Users\Vikas\.gradle\caches\transforms-4\21806fe28ed40f98060866dc7f1ec990\transformed\common-0.8.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\95177621aa4702ce8fee688405195b4d\transformed\core-ktx-1.13.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\04e95689e866deaa1b6c71ce3eb20c90\transformed\drawerlayout-1.1.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\25f09197e8e62a11fba82c394982cb06\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\9e32a8ddf394d4e5af725068c678a7c1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\413a8e4a9eb3aaf0c4b50e3f9d48c506\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\dcbccfbb0661c21744aa93c0ba0ab522\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\f0399d77f9b63c38fc177765225224ab\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\4e25636dd405692ea6de98ec9577891d\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\8c891022f459fde35268dc280173c41d\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\aefbc0ec848b3d49afff7cfe9360c522\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\bfca4ba11af8b4b27e1ef1e80242776a\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\97a0cf371c2fb4b6b0c6f24351802d56\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\50ad28e9c6dd79d9cbdb1228c363f3a7\transformed\lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\194a38b0dd7eccd06102086549e37ea6\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\9762669b000255fe0153637473782725\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\238aca21b5e8f49637130fc4d8ac70dc\transformed\lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\49bc041151dedaf71993251d29a1e190\transformed\lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f616caba39ef658b3d6c6d7bd1d45fd\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:17:1-55:12
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\978145e3231234d1565b491cf87aaa18\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ae79bf5aae5bcf25c39bb5eb433f6ed0\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.security:security-crypto:1.1.0-alpha06] C:\Users\Vikas\.gradle\caches\transforms-4\7d1c697464aa9b6e57950900a0641607\transformed\security-crypto-1.1.0-alpha06\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c16bd5a8f7f1dd902b70f59e6c134e72\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5cdf0bcf3458c5afe3325a6885408b8\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ea4a15cfc4b25c1de3ac35df9b67be1f\transformed\tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\f48f024ffc4297a207a08ebeeaaa7875\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\327382d6fa47f4bb711d622393684ca1\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\5d214c7f25eb6c7a8e8c20cccd483caa\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\0e64b34c012e55c6b3d5a87390208a8c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ffaaf1a2346850406496360ab1135d85\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+	package
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:4:5-33
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:7:5-71
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:7:22-68
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:8:5-67
+MERGED from [com.google.ai.client.generativeai:generativeai:0.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\92431489d1a33610750c56178763f274\transformed\generativeai-0.9.0\AndroidManifest.xml:22:5-67
+MERGED from [com.google.ai.client.generativeai:generativeai:0.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\92431489d1a33610750c56178763f274\transformed\generativeai-0.9.0\AndroidManifest.xml:22:5-67
+MERGED from [com.google.ai.client.generativeai:common:0.8.0] C:\Users\Vikas\.gradle\caches\transforms-4\21806fe28ed40f98060866dc7f1ec990\transformed\common-0.8.0\AndroidManifest.xml:22:5-67
+MERGED from [com.google.ai.client.generativeai:common:0.8.0] C:\Users\Vikas\.gradle\caches\transforms-4\21806fe28ed40f98060866dc7f1ec990\transformed\common-0.8.0\AndroidManifest.xml:22:5-67
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:8:22-64
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:9:5-72
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:9:22-69
+uses-permission#android.permission.WRITE_CONTACTS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:10:22-70
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:11:5-75
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:11:22-72
+uses-permission#android.permission.READ_CALL_LOG
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:12:5-72
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:12:22-69
+uses-permission#android.permission.ANSWER_PHONE_CALLS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:13:5-77
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:13:22-74
+uses-permission#android.permission.CALL_PHONE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:14:5-69
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:14:22-66
+uses-permission#android.permission.SEND_SMS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:15:5-67
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:15:22-64
+uses-permission#android.permission.MODIFY_PHONE_STATE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:16:5-17:47
+	tools:ignore
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:17:9-44
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:16:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:20:5-77
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:20:22-74
+uses-permission#android.permission.FOREGROUND_SERVICE_MICROPHONE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:21:5-88
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:21:22-85
+uses-permission#android.permission.FOREGROUND_SERVICE_SPECIAL_USE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:22:5-89
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:22:22-86
+uses-permission#android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:23:5-92
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:23:22-89
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:26:5-78
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:26:22-75
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:27:5-81
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:27:22-78
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:28:5-65
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:28:22-62
+uses-permission#android.permission.FLASHLIGHT
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:29:5-69
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:29:22-66
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:30:5-66
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:30:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:31:5-68
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:31:22-65
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:34:5-76
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:34:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:35:5-76
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:35:22-73
+uses-permission#android.permission.BLUETOOTH
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:36:5-68
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:36:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:37:5-74
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:37:22-71
+uses-permission#android.permission.BLUETOOTH_CONNECT
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:38:5-76
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:38:22-73
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:39:5-80
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:39:22-77
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:42:5-80
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:42:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:43:5-81
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:43:22-78
+uses-permission#android.permission.QUERY_ALL_PACKAGES
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:46:5-77
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:46:22-74
+uses-permission#android.permission.BIND_DEVICE_ADMIN
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:47:5-76
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:47:22-73
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:48:5-49:47
+	tools:ignore
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:49:9-44
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:48:22-75
+application
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:53:5-207:19
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:53:5-207:19
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Vikas\.gradle\caches\transforms-4\41c7b5709a6bc4cfe1dc58b8730b8037\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Vikas\.gradle\caches\transforms-4\41c7b5709a6bc4cfe1dc58b8730b8037\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Vikas\.gradle\caches\transforms-4\8aa544582b30d3317a6b6aeeee1eb6f4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Vikas\.gradle\caches\transforms-4\8aa544582b30d3317a6b6aeeee1eb6f4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:23:5-53:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5cdf0bcf3458c5afe3325a6885408b8\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5cdf0bcf3458c5afe3325a6885408b8\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:25:5-31:19
+	android:extractNativeLibs
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+	android:requestLegacyExternalStorage
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:61:9-52
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
+	android:supportsRtl
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:58:9-35
+	android:label
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:56:9-29
+	android:roundIcon
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:57:9-40
+	android:icon
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:55:9-35
+	android:allowBackup
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:54:9-36
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:59:9-42
+	android:usesCleartextTraffic
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:60:9-45
+activity#com.myra.assistant.ui.main.MainActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:64:9-75:20
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:67:13-49
+	android:excludeFromRecents
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:70:13-47
+	android:launchMode
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:69:13-43
+	android:windowSoftInputMode
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:68:13-55
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:66:13-36
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:65:13-49
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:71:13-74:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:72:17-69
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:72:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:73:17-77
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:73:27-74
+activity#com.myra.assistant.ui.main.AssistLauncherActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:78:9-91:20
+	android:excludeFromRecents
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:81:13-46
+	android:noHistory
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:82:13-37
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:80:13-36
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:84:13-58
+	android:taskAffinity
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:83:13-36
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:79:13-59
+intent-filter#action:name:android.intent.action.ASSIST+action:name:android.intent.action.VOICE_ASSIST+action:name:android.intent.action.VOICE_COMMAND+category:name:android.intent.category.DEFAULT
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:85:13-90:29
+action#android.intent.action.ASSIST
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:86:17-71
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:86:25-68
+action#android.intent.action.VOICE_COMMAND
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:87:17-78
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:87:25-75
+action#android.intent.action.VOICE_ASSIST
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:88:17-77
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:88:25-74
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:89:17-76
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:89:27-73
+activity#com.myra.assistant.ui.main.CallAssistantActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:94:9-104:46
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:101:13-49
+	android:turnScreenOn
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:100:13-40
+	android:excludeFromRecents
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:102:13-46
+	android:showWhenLocked
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:99:13-42
+	android:launchMode
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:104:13-44
+	android:noHistory
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:103:13-37
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:96:13-37
+	android:showOnLockScreen
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:98:13-44
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:97:13-58
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:95:13-58
+activity#com.myra.assistant.ui.settings.SettingsActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:107:9-111:52
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:111:13-49
+	android:parentActivityName
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:110:13-63
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:109:13-37
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:108:13-57
+activity#com.myra.assistant.security.AppLockActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:114:9-121:51
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:121:13-49
+	android:excludeFromRecents
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:119:13-46
+	android:noHistory
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:120:13-37
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:116:13-37
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:117:13-58
+	android:taskAffinity
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:118:13-36
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:115:13-53
+activity#com.myra.assistant.security.SecuritySettingsActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:123:9-126:65
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:125:13-37
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:126:13-63
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:124:13-62
+activity#com.myra.assistant.security.AppSelectionActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:128:9-132:51
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:132:13-49
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:130:13-37
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:131:13-63
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:129:13-58
+activity#com.myra.assistant.security.PatternSetupActivity
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:134:9-138:65
+	android:screenOrientation
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:137:13-49
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:136:13-37
+	android:theme
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:138:13-63
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:135:13-58
+receiver#com.myra.assistant.service.MyraDeviceAdminReceiver
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:141:9-153:20
+	android:label
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:143:13-51
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:146:13-36
+	android:permission
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:145:13-70
+	android:description
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:144:13-51
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:142:13-60
+meta-data#android.app.device_admin
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:147:13-149:65
+	android:resource
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:149:17-62
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:148:17-56
+intent-filter#action:name:android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:150:13-152:29
+action#android.app.action.DEVICE_ADMIN_ENABLED
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:151:17-82
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:151:25-79
+service#com.myra.assistant.service.MyraOverlayService
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:156:9-159:58
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:158:13-37
+	android:foregroundServiceType
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:159:13-55
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:157:13-55
+service#com.myra.assistant.service.CallMonitorService
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:162:9-170:19
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:164:13-37
+	android:permission
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:166:13-84
+	android:foregroundServiceType
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:165:13-55
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:163:13-55
+property#android.app.PROPERTY_SPECIAL_USE_FGS_TYPE
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:167:13-169:119
+	android:value
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:169:17-116
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:168:17-73
+service#com.myra.assistant.service.AccessibilityHelperService
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:173:9-186:19
+	android:canRetrieveWindowContent
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:177:13-52
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:176:13-37
+	android:permission
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:175:13-79
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:174:13-63
+intent-filter#action:name:android.accessibilityservice.AccessibilityService
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:179:13-181:29
+action#android.accessibilityservice.AccessibilityService
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:180:17-91
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:180:25-89
+meta-data#android.accessibilityservice
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:183:13-185:63
+	android:resource
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:185:17-61
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:184:17-60
+receiver#com.myra.assistant.service.PowerButtonReceiver
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:189:9-196:20
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:191:13-36
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:190:13-56
+intent-filter#action:name:android.intent.action.SCREEN_OFF+action:name:android.intent.action.SCREEN_ON
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:192:13-195:29
+action#android.intent.action.SCREEN_OFF
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:193:17-75
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:193:25-72
+action#android.intent.action.SCREEN_ON
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:194:17-74
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:194:25-71
+receiver#com.myra.assistant.service.BootReceiver
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:199:9-205:20
+	android:exported
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:201:13-36
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:200:13-49
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:202:13-204:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:203:17-79
+	android:name
+		ADDED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml:203:25-76
+uses-sdk
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:databinding-adapters:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\a5ec4cf950b19f497191ebeac8548091\transformed\databinding-adapters-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:databinding-adapters:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\a5ec4cf950b19f497191ebeac8548091\transformed\databinding-adapters-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:databinding-ktx:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\183a209750aa69e829703a20686285ae\transformed\databinding-ktx-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:databinding-ktx:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\183a209750aa69e829703a20686285ae\transformed\databinding-ktx-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:databinding-runtime:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\388560d8bc952b20ae460d082b45057c\transformed\databinding-runtime-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:databinding-runtime:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\388560d8bc952b20ae460d082b45057c\transformed\databinding-runtime-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\b4bc1c33ebf5d28fb3323961159b147e\transformed\viewbinding-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\b4bc1c33ebf5d28fb3323961159b147e\transformed\viewbinding-8.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Vikas\.gradle\caches\transforms-4\41c7b5709a6bc4cfe1dc58b8730b8037\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.11.0] C:\Users\Vikas\.gradle\caches\transforms-4\41c7b5709a6bc4cfe1dc58b8730b8037\transformed\material-1.11.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Vikas\.gradle\caches\transforms-4\8aa544582b30d3317a6b6aeeee1eb6f4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\Vikas\.gradle\caches\transforms-4\8aa544582b30d3317a6b6aeeee1eb6f4\transformed\constraintlayout-2.1.4\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\f5731eecbcb8d5bdd11e7c0e4391a395\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\f5731eecbcb8d5bdd11e7c0e4391a395\transformed\appcompat-resources-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\147d27563702f1a7d628424269cf7aa0\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\Vikas\.gradle\caches\transforms-4\147d27563702f1a7d628424269cf7aa0\transformed\appcompat-1.6.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Vikas\.gradle\caches\transforms-4\b5d088b9f5b7c99532801d5d28c22b9e\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\Vikas\.gradle\caches\transforms-4\b5d088b9f5b7c99532801d5d28c22b9e\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Vikas\.gradle\caches\transforms-4\03f256f4bd5bb44ee2f6b487256e77ef\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\Vikas\.gradle\caches\transforms-4\03f256f4bd5bb44ee2f6b487256e77ef\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\6e27bcf8bb27b35a85319308808c4c23\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\6e27bcf8bb27b35a85319308808c4c23\transformed\fragment-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\65b02d6f002409768c2af53958dea5fa\transformed\fragment-ktx-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.fragment:fragment-ktx:1.7.1] C:\Users\Vikas\.gradle\caches\transforms-4\65b02d6f002409768c2af53958dea5fa\transformed\fragment-ktx-1.7.1\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\b6de015c2b5ed26fae8f473c9f0790d9\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\b6de015c2b5ed26fae8f473c9f0790d9\transformed\activity-1.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\f3b8d91c657680301ae2ab27ec95eaba\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.activity:activity-ktx:1.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\f3b8d91c657680301ae2ab27ec95eaba\transformed\activity-ktx-1.9.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\0fcf29ddcddd45f8b4cd558347b8f8b7\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\0fcf29ddcddd45f8b4cd558347b8f8b7\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5e0c5ccfb02b79a080dd6d462de055f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5e0c5ccfb02b79a080dd6d462de055f\transformed\savedstate-ktx-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\8381117fb2c15c875ef6df6f17ee256a\transformed\lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\8381117fb2c15c875ef6df6f17ee256a\transformed\lifecycle-viewmodel-savedstate-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\2c666c6ecf4454ef98ecefaa2225dd01\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.2.1] C:\Users\Vikas\.gradle\caches\transforms-4\2c666c6ecf4454ef98ecefaa2225dd01\transformed\savedstate-1.2.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\cd078fb0ef0dc231648923b53dcfae7b\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\cd078fb0ef0dc231648923b53dcfae7b\transformed\lifecycle-livedata-core-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\ff833fbe2959c77eb7ccb969a1231107\transformed\lifecycle-service-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\ff833fbe2959c77eb7ccb969a1231107\transformed\lifecycle-service-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [com.google.ai.client.generativeai:generativeai:0.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\92431489d1a33610750c56178763f274\transformed\generativeai-0.9.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.ai.client.generativeai:generativeai:0.9.0] C:\Users\Vikas\.gradle\caches\transforms-4\92431489d1a33610750c56178763f274\transformed\generativeai-0.9.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c4523e6e5160dae9c30ff0e3465b8025\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [androidx.customview:customview-poolingcontainer:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c4523e6e5160dae9c30ff0e3465b8025\transformed\customview-poolingcontainer-1.0.0\AndroidManifest.xml:20:5-21:38
+MERGED from [com.google.ai.client.generativeai:common:0.8.0] C:\Users\Vikas\.gradle\caches\transforms-4\21806fe28ed40f98060866dc7f1ec990\transformed\common-0.8.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.ai.client.generativeai:common:0.8.0] C:\Users\Vikas\.gradle\caches\transforms-4\21806fe28ed40f98060866dc7f1ec990\transformed\common-0.8.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\95177621aa4702ce8fee688405195b4d\transformed\core-ktx-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\95177621aa4702ce8fee688405195b4d\transformed\core-ktx-1.13.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\04e95689e866deaa1b6c71ce3eb20c90\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\04e95689e866deaa1b6c71ce3eb20c90\transformed\drawerlayout-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\25f09197e8e62a11fba82c394982cb06\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\25f09197e8e62a11fba82c394982cb06\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\9e32a8ddf394d4e5af725068c678a7c1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\9e32a8ddf394d4e5af725068c678a7c1\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\413a8e4a9eb3aaf0c4b50e3f9d48c506\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\413a8e4a9eb3aaf0c4b50e3f9d48c506\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\dcbccfbb0661c21744aa93c0ba0ab522\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\dcbccfbb0661c21744aa93c0ba0ab522\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\f0399d77f9b63c38fc177765225224ab\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\f0399d77f9b63c38fc177765225224ab\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\4e25636dd405692ea6de98ec9577891d\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\4e25636dd405692ea6de98ec9577891d\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\8c891022f459fde35268dc280173c41d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\8c891022f459fde35268dc280173c41d\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\aefbc0ec848b3d49afff7cfe9360c522\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\aefbc0ec848b3d49afff7cfe9360c522\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\bfca4ba11af8b4b27e1ef1e80242776a\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\bfca4ba11af8b4b27e1ef1e80242776a\transformed\customview-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\97a0cf371c2fb4b6b0c6f24351802d56\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\97a0cf371c2fb4b6b0c6f24351802d56\transformed\lifecycle-runtime-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:21:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\50ad28e9c6dd79d9cbdb1228c363f3a7\transformed\lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\50ad28e9c6dd79d9cbdb1228c363f3a7\transformed\lifecycle-livedata-core-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\194a38b0dd7eccd06102086549e37ea6\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\194a38b0dd7eccd06102086549e37ea6\transformed\lifecycle-livedata-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\9762669b000255fe0153637473782725\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\9762669b000255fe0153637473782725\transformed\lifecycle-viewmodel-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\238aca21b5e8f49637130fc4d8ac70dc\transformed\lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\238aca21b5e8f49637130fc4d8ac70dc\transformed\lifecycle-runtime-ktx-2.7.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\49bc041151dedaf71993251d29a1e190\transformed\lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\49bc041151dedaf71993251d29a1e190\transformed\lifecycle-livedata-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f616caba39ef658b3d6c6d7bd1d45fd\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f616caba39ef658b3d6c6d7bd1d45fd\transformed\lifecycle-viewmodel-ktx-2.7.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:21:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\978145e3231234d1565b491cf87aaa18\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.4.0] C:\Users\Vikas\.gradle\caches\transforms-4\978145e3231234d1565b491cf87aaa18\transformed\annotation-experimental-1.4.0\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ae79bf5aae5bcf25c39bb5eb433f6ed0\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ae79bf5aae5bcf25c39bb5eb433f6ed0\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.security:security-crypto:1.1.0-alpha06] C:\Users\Vikas\.gradle\caches\transforms-4\7d1c697464aa9b6e57950900a0641607\transformed\security-crypto-1.1.0-alpha06\AndroidManifest.xml:20:5-44
+MERGED from [androidx.security:security-crypto:1.1.0-alpha06] C:\Users\Vikas\.gradle\caches\transforms-4\7d1c697464aa9b6e57950900a0641607\transformed\security-crypto-1.1.0-alpha06\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c16bd5a8f7f1dd902b70f59e6c134e72\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\c16bd5a8f7f1dd902b70f59e6c134e72\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5cdf0bcf3458c5afe3325a6885408b8\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\a5cdf0bcf3458c5afe3325a6885408b8\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ea4a15cfc4b25c1de3ac35df9b67be1f\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ea4a15cfc4b25c1de3ac35df9b67be1f\transformed\tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\f48f024ffc4297a207a08ebeeaaa7875\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\f48f024ffc4297a207a08ebeeaaa7875\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\327382d6fa47f4bb711d622393684ca1\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\327382d6fa47f4bb711d622393684ca1\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\5d214c7f25eb6c7a8e8c20cccd483caa\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\5d214c7f25eb6c7a8e8c20cccd483caa\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\0e64b34c012e55c6b3d5a87390208a8c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\0e64b34c012e55c6b3d5a87390208a8c\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ffaaf1a2346850406496360ab1135d85\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\Vikas\.gradle\caches\transforms-4\ffaaf1a2346850406496360ab1135d85\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+	android:targetSdkVersion
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Vikas\Music\MYRA_Android_Project\MYRA\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.USE_BIOMETRIC
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:24:5-72
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:24:22-69
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:27:5-74
+	android:name
+		ADDED from [androidx.biometric:biometric:1.1.0] C:\Users\Vikas\.gradle\caches\transforms-4\2bb9532b95c4c2203a61182c3adaae62\transformed\biometric-1.1.0\AndroidManifest.xml:27:22-71
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\Vikas\.gradle\caches\transforms-4\89d08adcb30fdc147fc4933bb08fad58\transformed\startup-runtime-1.1.1\AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] C:\Users\Vikas\.gradle\caches\transforms-4\03b293102b28facadc644e8265cc60fe\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+permission#com.myra.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+uses-permission#com.myra.assistant.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.13.0] C:\Users\Vikas\.gradle\caches\transforms-4\19fd39c3582a71c36ad1bdf93b52ad64\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.7.0] C:\Users\Vikas\.gradle\caches\transforms-4\1f3a48c6bffa336f47ed0cad80fa7c53\transformed\lifecycle-process-2.7.0\AndroidManifest.xml:30:17-78
+meta-data#androidx.profileinstaller.ProfileInstallerInitializer
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+receiver#androidx.profileinstaller.ProfileInstallReceiver
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+	android:enabled
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+	android:exported
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+	android:permission
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+	android:directBootAware
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+intent-filter#action:name:androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+action#androidx.profileinstaller.action.INSTALL_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+intent-filter#action:name:androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+action#androidx.profileinstaller.action.SKIP_FILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+intent-filter#action:name:androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+action#androidx.profileinstaller.action.SAVE_PROFILE
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+intent-filter#action:name:androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+action#androidx.profileinstaller.action.BENCHMARK_OPERATION
+ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+	android:name
+		ADDED from [androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Vikas\.gradle\caches\transforms-4\3b54fdf8d4094d62618cad3b14433084\transformed\profileinstaller-1.3.1\AndroidManifest.xml:50:25-92

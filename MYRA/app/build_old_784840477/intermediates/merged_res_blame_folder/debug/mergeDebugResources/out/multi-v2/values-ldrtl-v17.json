@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.myra.assistant.app-mergeDebugResources-42:/values-ldrtl-v17/values-ldrtl-v17.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Vikas\\.gradle\\caches\\transforms-4\\41c7b5709a6bc4cfe1dc58b8730b8037\\transformed\\material-1.11.0\\res\\values-ldrtl-v17\\values-ldrtl-v17.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,191",
+                        "endColumns": "135,140",
+                        "endOffsets": "186,327"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MYRA</string>
+    <string name="accessibility_description">MYRA needs accessibility access to open/close apps and control UI elements on your behalf.</string>
+    <string name="accessibility_service_description">MYRA Accessibility Service — Controls apps and UI automation for you. Enables voice commands for WhatsApp, calls, and system actions.</string>
+</resources>

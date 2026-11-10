@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="myra_card">#111111</color>
+    <color name="myra_dark">#050505</color>
+    <color name="myra_hint">#555555</color>
+    <color name="myra_purple">#D500F9</color>
+    <color name="myra_red">#FF1744</color>
+    <color name="myra_text">#EEEEEE</color>
+    <string name="accessibility_description">MYRA needs accessibility access to open/close apps and control UI elements on your behalf.</string>
+    <string name="accessibility_service_description">MYRA Accessibility Service — Controls apps and UI automation for you. Enables voice commands for WhatsApp, calls, and system actions.</string>
+    <string name="app_name">MYRA</string>
+    <style name="PinButton">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.Myra" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">#050505</item>
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#050505</item>
+        <item name="colorPrimary">#FF1744</item>
+        <item name="colorPrimaryDark">#B71C1C</item>
+        <item name="colorAccent">#D500F9</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="Theme.Myra.Transparent" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>

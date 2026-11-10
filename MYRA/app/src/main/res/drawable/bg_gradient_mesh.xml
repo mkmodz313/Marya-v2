@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- bg_gradient_mesh.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#050505" />
+        </shape>
+    </item>
+    <item android:gravity="top|start">
+        <shape>
+            <solid android:color="#1AFF1744" />
+            <size android:width="300dp" android:height="300dp" />
+            <corners android:radius="300dp" />
+        </shape>
+    </item>
+    <item android:gravity="bottom|end">
+        <shape>
+            <solid android:color="#0AD500F9" />
+            <size android:width="200dp" android:height="200dp" />
+            <corners android:radius="200dp" />
+        </shape>
+    </item>
+</layer-list>
