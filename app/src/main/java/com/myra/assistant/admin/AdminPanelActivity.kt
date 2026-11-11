@@ -282,7 +282,7 @@ class AdminPanelActivity : AppCompatActivity() {
         if (title.isEmpty()) { status("Title likhein.", true); return }
         if (v == null) { status("Pehle video chunein.", true); return }
         val vInfo = info(v)
-        if (vInfo.second > 150L * 1024 * 1024) { status("Video 150 MB se choti honi chahiye.", true); return }
+        if (vInfo.second > 50L * 1024 * 1024) { status("Supabase free plan mein video 50 MB se choti honi chahiye. Video compress karein (720p).", true); return }
         val desc = fDesc.text.toString().trim()
         val cat = fCategory.selectedItem as String
         val publish = fPublish.isChecked

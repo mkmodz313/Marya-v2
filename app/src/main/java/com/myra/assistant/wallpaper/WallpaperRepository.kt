@@ -13,9 +13,8 @@ import java.io.FileOutputStream
 import java.util.concurrent.TimeUnit
 
 /**
- * Catalog + downloads. Talks to Cloud Firestore through its public REST API (no extra SDK / plugin needed,
- * so the project still builds without google-services.json). Only published wallpapers are readable by the
- * app - that rule is enforced server-side by firestore.rules.
+ * Catalog + downloads. Talks to Supabase through its REST API (no extra SDK / plugin needed). Only published
+ * wallpapers are readable by the app - enforced server-side by the Row Level Security policies.
  *
  * Only thumbnails are fetched for the gallery. A video is downloaded ONLY when the user taps SET WALLPAPER;
  * the detail preview streams it instead.
@@ -30,69 +29,48 @@ object WallpaperRepository {
         .readTimeout(30, TimeUnit.SECONDS)
         .build()
 
-    private fun base() =
-        "https://firestore.googleapis.com/v1/projects/${CloudConfig.FIREBASE_PROJECT_ID}/databases/(default)/documents"
-
     /** Last catalog stored on the phone (shown instantly / offline). */
     fun cached(context: Context): List<WallpaperItem> = try {
         val arr = JSONArray(context.prefs().getString(CACHE_KEY, "[]"))
         (0 until arr.length()).map { WallpaperItem.fromJson(arr.getJSONObject(it)) }
     } catch (_: Exception) { emptyList() }
 
-    /** Fetches published wallpapers from the cloud. Throws on network / server errors. */
+    /** Fetches published wallpapers from Supabase. Throws on network / server errors. */
     fun fetchCloud(context: Context): List<WallpaperItem> {
         if (!CloudConfig.isConfigured) return emptyList()
-        val body = JSONObject().put(
-            "structuredQuery", JSONObject()
-                .put("from", JSONArray().put(JSONObject().put("collectionId", "wallpapers")))
-                .put("where", JSONObject().put("fieldFilter", JSONObject()
-                    .put("field", JSONObject().put("fieldPath", "published"))
-                    .put("op", "EQUAL")
-                    .put("value", JSONObject().put("booleanValue", true))))
-                .put("limit", 200)
-        ).toString()
         val req = Request.Builder()
-            .url("${base()}:runQuery?key=${CloudConfig.FIREBASE_API_KEY}")
-            .post(body.toRequestBody(JSON)).build()
+            .url("${CloudConfig.base()}/rest/v1/wallpapers?select=*&published=eq.true&order=created_at.desc&limit=200")
+            .header("apikey", CloudConfig.SUPABASE_KEY)
+            .build()
         http.newCall(req).execute().use { r ->
             val text = r.body?.string().orEmpty()
             if (!r.isSuccessful) throw RuntimeException("Catalog error ${r.code}")
             val arr = JSONArray(text)
             val out = ArrayList<WallpaperItem>()
             for (i in 0 until arr.length()) {
-                val doc = arr.getJSONObject(i).optJSONObject("document") ?: continue
-                parse(doc)?.let { out.add(it) }
+                val o = arr.getJSONObject(i)
+                val video = o.optString("video_url")
+                val id = o.optString("id")
+                if (id.isEmpty() || video.isEmpty()) continue
+                out.add(WallpaperItem(
+                    id, o.optString("title"), o.optString("description"), o.optString("category", "General").ifEmpty { "General" },
+                    video, o.optString("thumb_url"), o.optLong("size_bytes"), o.optLong("created_at"),
+                    o.optLong("downloads"), o.optLong("views")
+                ))
             }
-            out.sortByDescending { it.createdAt }
             context.prefs().edit().putString(CACHE_KEY, JSONArray(out.map { it.toJson() }).toString()).apply()
             return out
         }
     }
 
-    private fun parse(doc: JSONObject): WallpaperItem? {
-        val f = doc.optJSONObject("fields") ?: return null
-        fun s(k: String) = f.optJSONObject(k)?.optString("stringValue", "") ?: ""
-        fun n(k: String) = f.optJSONObject(k)?.let { it.optString("integerValue", it.optString("doubleValue", "0")) }?.toDoubleOrNull()?.toLong() ?: 0L
-        val id = doc.optString("name").substringAfterLast('/')
-        val video = s("videoUrl")
-        if (id.isEmpty() || video.isEmpty()) return null
-        val created = f.optJSONObject("createdAt")?.let { it.optString("integerValue", "").toLongOrNull() } ?: 0L
-        return WallpaperItem(id, s("title"), s("description"), s("category").ifEmpty { "General" },
-            video, s("thumbUrl"), n("sizeBytes"), created, n("downloads"), n("views"))
-    }
-
-    /** Fire-and-forget statistics (+1). Server rules only allow +1 on these two counters of published items. */
+    /** Fire-and-forget statistics (+1) through a safe server function (only downloads/views of published items). */
     fun bump(item: WallpaperItem, field: String) {
         if (item.isBundled || !CloudConfig.isConfigured) return
         try {
-            val path = "projects/${CloudConfig.FIREBASE_PROJECT_ID}/databases/(default)/documents/wallpapers/${item.id}"
-            val body = JSONObject().put("writes", JSONArray().put(JSONObject().put("transform", JSONObject()
-                .put("document", path)
-                .put("fieldTransforms", JSONArray().put(JSONObject()
-                    .put("fieldPath", field)
-                    .put("increment", JSONObject().put("integerValue", "1")))))))
+            val body = JSONObject().put("wp_id", item.id).put("field", field)
             val req = Request.Builder()
-                .url("${base()}:commit?key=${CloudConfig.FIREBASE_API_KEY}")
+                .url("${CloudConfig.base()}/rest/v1/rpc/bump_stat")
+                .header("apikey", CloudConfig.SUPABASE_KEY)
                 .post(body.toString().toRequestBody(JSON)).build()
             http.newCall(req).execute().close()
         } catch (_: Exception) { }

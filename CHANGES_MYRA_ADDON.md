@@ -25,3 +25,5 @@
 - admin/AdminApi.kt, AdminLoginActivity.kt, AdminPanelActivity.kt (in-app password-protected admin panel, REST: Firebase Auth + Firestore + Storage)
 - PhoneControl.executeTool + Gemini function calling (open_app, play_on_youtube, open_website, search_web, whatsapp_*, run_command) so voice commands really execute
 - Settings & home 3D redesign, 4-button bottom card
+
+- Backend switched from Firebase to Supabase (admin/AdminApi.kt, wallpaper/CloudConfig.kt, WallpaperRepository.kt, backend/supabase_setup.sql)

@@ -1,22 +1,23 @@
-# MYRA – Backend & Admin Panel (Firebase project: mkmodzboy2026)
+# MYRA – Backend & Admin Panel (SUPABASE, free plan)
 
-## Admin Panel is INSIDE the app
-Settings (very bottom) → **Admin Panel** → email + password login → wallpaper upload / manage page.
-No website, no `firebase deploy` and no computer are needed for this. (`backend/admin/` is an optional web version; ignore it.)
+Firebase Storage needs a paid plan, so wallpapers now use **Supabase** (Auth + database + file storage, all free).
+(The old `firebase.json / firestore.rules / storage.rules / admin/` files are no longer used - ignore them.)
 
-The password is never stored in the APK or on the phone. It is checked by Google's sign-in server, and the
-Firestore/Storage rules (below) only let `umarmalang496@gmail.com` write - even someone who modifies the APK cannot.
+## Setup (once, phone browser is fine) – https://supabase.com/dashboard
+1. Open your project → **SQL Editor → New query** → paste the whole file `backend/supabase_setup.sql` → **Run**.
+   (Creates the table, the policies, the `wallpapers` storage bucket.)
+2. **Authentication → Users → Add user → Create new user**: email `umarmalang496@gmail.com`, your password,
+   and tick **Auto Confirm User**.
+3. **Project Settings → API**: copy **Project URL** and the **anon / publishable key**.
+4. Put them in `app/src/main/java/com/myra/assistant/wallpaper/CloudConfig.kt`
+   (`SUPABASE_URL`, `SUPABASE_KEY`) and rebuild the APK.
 
-## One-time setup in the Firebase console (phone browser is fine)
-1. Authentication → Sign-in method → **Email/Password enabled** (done).
-2. Authentication → Users → **Add user**: `umarmalang496@gmail.com` + your password.
-3. Authentication → Settings → User actions → turn OFF "Enable create (sign-up)".
-4. **Firestore Database → Create database** (production mode) → Rules tab → paste `backend/firestore.rules` → Publish.
-5. **Storage → Get started** → Rules tab → paste `backend/storage.rules` → Publish.
-   (Google may ask for the Blaze plan before it creates a Storage bucket.)
+## Using it
+App → Settings (bottom) → **Admin Panel** → login → pick video (+ optional thumbnail) → Title/Description/Category
+→ UPLOAD & SAVE. Published wallpapers appear for every user (gallery refreshes on open and every 45 s).
 
-## Daily use
-Open app → Settings → Admin Panel → login → choose video (+ optional thumbnail; if none, it is made from the video)
-→ Title, Description, Category → "Turant publish" → UPLOAD & SAVE. Keep the app open until it says done.
-Published wallpapers appear for every user (gallery refreshes on open, every 45 s while open, and via the refresh button).
-Unpublish / Edit / Delete are on the same page. Statistics (sets / views) update automatically.
+## Limits to know (Supabase free plan)
+* Max **50 MB per file** → compress videos (e.g. 720p, 10-20 s loop).
+* 1 GB total storage, 5 GB/month traffic.
+* A free project **pauses after ~7 days with no activity**; open the dashboard and click Restore. Normal app use counts as activity.
+* The key in the APK is public by design; only `umarmalang496@gmail.com` can write (policies in the SQL file).
