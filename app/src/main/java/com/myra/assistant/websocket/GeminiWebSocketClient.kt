@@ -224,6 +224,11 @@ class GeminiWebSocketClient(
                 "text" to "Text to type"))
             .put(fn("ui_scroll", "Scroll the current screen.", "direction" to "up or down"))
             .put(fn("ui_press", "Press a system key.", "key" to "back, home, recents or notifications"))
+            .put(fn("answer_call", "Answer the incoming phone call (when the user says call utha / pick up / answer the call). Does NOT start a conversation with the caller."))
+            .put(fn("talk_on_call", "Answer the incoming call (if still ringing), turn the speaker ON and talk to the caller yourself. Use when the user says 'phone pe baat karo / talk on the phone / caller se baat karo'."))
+            .put(fn("reject_call", "Reject the ringing call (call kaat do / decline)."))
+            .put(fn("end_call", "End the call that is currently connected (call band karo / hang up)."))
+            .put(fn("call_speaker", "Switch the speakerphone on or off during a call.", "mode" to "on or off"))
             .put(fn("run_command", "Other device actions. Command is one of: VOLUME_UP, VOLUME_DOWN, FLASHLIGHT_ON, FLASHLIGHT_OFF, CALL <name>, WHATSAPP_CALL <name>.",
                 "command" to "The command"))
         )

@@ -39,32 +39,15 @@ import kotlinx.coroutines.launch
 class ForegroundVoiceService : Service() {
     private val TAG = "VOICE_SVC"
     private val job = SupervisorJob()
-    private val scope = CoroutineScope(Dispatchers.IO + job)
+    private val scope = CoroutineScope(
+        Dispatchers.IO + job + kotlinx.coroutines.CoroutineExceptionHandler { _, e -> Logger.e("VOICE_SVC", "coroutine error: ${e.message}") }
+    )
 
     private lateinit var audioRecorder: AudioRecorder
     private lateinit var audioPlayer: AudioPlayer
     private lateinit var vad: VoiceActivityDetector
     private lateinit var audioFocus: AudioFocusManager
     private var geminiClient: GeminiWebSocketClient? = null
-
-    // "phone is charging" announcement
-    private var lastPowerAnnounce = 0L
-    private val powerReceiver = object : BroadcastReceiver() {
-        override fun onReceive(c: Context, i: Intent) {
-            if (i.action != Intent.ACTION_POWER_CONNECTED) return
-            val sp = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
-            if (!sp.getBoolean("charging_announce", true)) return
-            val now = System.currentTimeMillis()
-            if (now - lastPowerAnnounce < 4000) return
-            lastPowerAnnounce = now
-            val pct = try { (getSystemService(Context.BATTERY_SERVICE) as BatteryManager).getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY) } catch (_: Exception) { -1 }
-            val love = sp.getBoolean("girlfriend_mode", false)
-            com.myra.assistant.utils.Announcer.speak(
-                applicationContext,
-                (if (love) "जानी, " else "") + "आपका मोबाइल चार्जिंग पर लग गया है।" + if (pct in 0..100) " बैटरी $pct प्रतिशत है।" else ""
-            )
-        }
-    }
 
     // reconnect / continuity state
     private var reconnectJob: Job? = null
@@ -86,11 +69,24 @@ class ForegroundVoiceService : Service() {
         super.onCreate()
         instance = this
         isRunning = true
-        startForeground(Constants.NOTIF_ID_VOICE, buildNotification())
-        ChatRepository.init(applicationContext)
-        initComponents()
-        registerNetworkWatcher()
-        try { registerReceiver(powerReceiver, IntentFilter(Intent.ACTION_POWER_CONNECTED)) } catch (_: Exception) {}
+        try {
+            startForeground(Constants.NOTIF_ID_VOICE, buildNotification())
+        } catch (e: Exception) {
+            // e.g. microphone permission not granted yet / started from background: don't crash, just stop quietly
+            Logger.e(TAG, "startForeground failed: ${e.message}")
+            isRunning = false
+            instance = null
+            stopSelf()
+            return
+        }
+        com.myra.assistant.utils.ChargingWatcher.register(applicationContext)
+        try { ChatRepository.init(applicationContext) } catch (e: Throwable) { Logger.e(TAG, "chat init: ${e.message}") }
+        try {
+            initComponents()
+        } catch (e: Throwable) {
+            Logger.e(TAG, "initComponents failed: ${e.message}")
+        }
+        try { registerNetworkWatcher() } catch (e: Throwable) { Logger.e(TAG, "network watcher: ${e.message}") }
     }
 
     private fun initComponents() {
@@ -323,6 +319,7 @@ STRICT RULES:
   SPOTIFY_PLAY <query> | FLASHLIGHT_ON | FLASHLIGHT_OFF
   VOLUME_UP | VOLUME_DOWN | SMS <name> <message>
 - DEVICE ACTIONS: you have functions (open_app, play_on_youtube, open_website, search_web, whatsapp_open_chat, whatsapp_prepare_message, whatsapp_send_confirmed, run_command). ALWAYS call the matching function for any request to open an app / play a song / open a website / WhatsApp chat (this overrides the 'return ONLY the command' rule). Say one short warm sentence like 'Sure dear! Opening WhatsApp.' and only claim success if the function result says success; if it says failed, tell the user honestly why
+- PHONE CALLS: when a call is ringing and the user says 'call utha / call uthao / answer the call' call answer_call. If they say 'phone pe baat karo / call pe baat karo / talk on the phone' call talk_on_call, then talk to the CALLER yourself (short, polite, take a message, never reveal private info). 'call kaat do / reject' -> reject_call, 'call band karo / hang up' -> end_call, speaker -> call_speaker. Only say it worked if the function result says success.
 - IN-APP CONTROL: you can work inside ANY app step by step. Loop: ui_read_screen -> ui_click / ui_type / ui_scroll / ui_press -> ui_read_screen to check the result, until the task is done. Be fast, do not ask unnecessary questions.
 - WhatsApp by saved name: whatsapp_open_chat_by_name, then whatsapp_read_messages (read them out aloud), whatsapp_play_voice_message, or whatsapp_prepare_reply (types only). To actually send: ask 'Shall I send it?' and only after a clear yes call whatsapp_send_confirmed.
 - Sensitive taps (Send, Pay, Buy, Order, Delete, Confirm, Transfer): ask the user first; only after yes use ui_click_confirmed. Never type or read passwords/PINs/OTPs.
@@ -370,13 +367,12 @@ ${girlfriendPrompt()}
         isRunning = false
         instance = null
         reconnectJob?.cancel()
-        try { unregisterReceiver(powerReceiver) } catch (_: Exception) {}
         try {
             networkCallback?.let { (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).unregisterNetworkCallback(it) }
         } catch (_: Exception) {}
-        audioRecorder.stop()
-        audioPlayer.release()
-        geminiClient?.disconnect()
+        try { if (::audioRecorder.isInitialized) audioRecorder.stop() } catch (_: Exception) {}
+        try { if (::audioPlayer.isInitialized) audioPlayer.release() } catch (_: Exception) {}
+        try { geminiClient?.disconnect() } catch (_: Exception) {}
         job.cancel()
         super.onDestroy()
     }

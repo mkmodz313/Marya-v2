@@ -13,7 +13,10 @@ class BootReceiver : BroadcastReceiver() {
             val prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
             val apiKey = com.myra.assistant.utils.ApiKeys.gemini(context)
             if (apiKey.isNotEmpty()) {
-                ContextCompat.startForegroundService(context, Intent(context, ForegroundVoiceService::class.java))
+                // Android 14+ may refuse a microphone service at boot - never let that crash the app
+                try {
+                    ContextCompat.startForegroundService(context, Intent(context, ForegroundVoiceService::class.java))
+                } catch (_: Exception) { }
             }
         }
     }

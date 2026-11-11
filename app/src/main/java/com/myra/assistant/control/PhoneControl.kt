@@ -111,7 +111,9 @@ object PhoneControl {
     private var lastActionKey = ""
     private var lastActionAt = 0L
 
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
+    private val scope = CoroutineScope(
+        SupervisorJob() + Dispatchers.Main + kotlinx.coroutines.CoroutineExceptionHandler { _, e -> Logger.e("PHONE_CTRL", "coroutine error: ${e.message}") }
+    )
     private val main = Handler(Looper.getMainLooper())
 
     // ─────────────────────────────────────────────────────────────────────────────────────────────
@@ -121,6 +123,9 @@ object PhoneControl {
         val text = raw.trim()
         if (text.isEmpty()) return NOT_HANDLED
         val lower = normalize(text)
+
+        // 0) Phone-call voice commands (answer / talk on the phone / reject-end)
+        callCommand(ctx, lower)?.let { return it }
 
         // 1) Compose a WhatsApp message (needs a chat opened by number first; a new compose replaces an older pending one)
         val composed = COMPOSE_A.find(text)?.groupValues?.get(1) ?: COMPOSE_B.find(text)?.groupValues?.get(1)
@@ -177,6 +182,53 @@ object PhoneControl {
     }
 
     fun hasPendingMessage(): Boolean = pending != null
+
+    // ─────────────────────────────────────────────────────────────────────────────────────────────
+    // Phone calls (answer / talk / end)
+    // ─────────────────────────────────────────────────────────────────────────────────────────────
+    private val TALK_PHRASES = listOf(
+        "phone pe baat", "phone par baat", "call pe baat", "call par baat", "caller se baat", "unse baat kar", "usse baat kar",
+        "talk on the phone", "talk on phone", "talk to the caller", "speak to the caller", "baat kar lo phone", "phone pe bat",
+        "फोन पर बात", "कॉल पर बात", "फोन पे बात", "कॉल पे बात"
+    )
+    private val ANSWER_PHRASES = listOf(
+        "call utha", "phone utha", "call uthao", "phone uthao", "call receive", "phone receive", "call recieve", "answer the call",
+        "answer call", "answer the phone", "pick up the call", "pick up the phone", "pickup the call", "call pick",
+        "कॉल उठा", "फोन उठा", "फ़ोन उठा", "कॉल रिसीव", "फोन रिसीव", "कॉल उठाओ", "फोन उठाओ"
+    )
+    private val END_PHRASES = listOf(
+        "call kaat", "phone kaat", "call cut", "call band kar", "call disconnect", "reject the call", "reject call", "decline the call",
+        "end the call", "end call", "hang up", "कॉल काट", "फोन काट", "कॉल कट", "कॉल बंद"
+    )
+
+    private fun callCommand(ctx: Context, lower: String): Outcome? {
+        val talk = TALK_PHRASES.any { lower.contains(it) }
+        val answer = !talk && ANSWER_PHRASES.any { lower.contains(it) }
+        val end = !talk && !answer && END_PHRASES.any { lower.contains(it) }
+        if (!talk && !answer && !end) return null
+        // If a call is neither ringing nor active, this sentence is probably not a call command - let the normal flow handle it.
+        if (CallControl.callState(ctx) == android.telephony.TelephonyManager.CALL_STATE_IDLE) return null
+        if (isDuplicate(if (talk) "call_talk" else if (answer) "call_answer" else "call_end")) return Outcome(true, "")
+        when {
+            answer -> scope.launch(Dispatchers.Default) { CallControl.answer(ctx) }
+            end -> scope.launch(Dispatchers.Default) { CallControl.end(ctx) }
+            else -> {
+                // Normally the voice model calls talk_on_call itself (that clears the flag). If it did not within
+                // 2.5 s, do it here and give the model its instruction.
+                CallControl.talkPromptPending = true
+                scope.launch {
+                    delay(2500)
+                    if (CallControl.talkPromptPending) {
+                        CallControl.talk(ctx)
+                        com.myra.assistant.services.ForegroundVoiceService.instance?.sendTextToGemini(
+                            "[Call mode] The phone call is now connected on speaker. Speak to the caller politely in Hinglish: greet, say you are MYRA the user's assistant, ask who is calling and take a message. Keep it short."
+                        )
+                    }
+                }
+            }
+        }
+        return Outcome(true, if (talk) "Theek hai, call utha ke speaker par baat kar rahi hoon." else if (answer) "Call utha rahi hoon." else "Call kaat rahi hoon.")
+    }
 
     // ─────────────────────────────────────────────────────────────────────────────────────────────
     // WhatsApp
@@ -492,6 +544,13 @@ object PhoneControl {
                     }
                     res(confirmSend(ctx, p))
                 }
+                "answer_call" -> CallControl.answer(ctx)
+                "reject_call", "end_call" -> CallControl.end(ctx)
+                "call_speaker" -> {
+                    val on = !args.optString("mode").lowercase().contains("off")
+                    if (CallControl.setSpeaker(ctx, on)) "success: speaker ${if (on) "ON" else "OFF"}" else "failed: could not change speaker"
+                }
+                "talk_on_call" -> CallControl.talk(ctx)
                 "run_command" -> {
                     val cmd = args.optString("command").trim()
                     if (cmd.isEmpty()) "failed: no command"

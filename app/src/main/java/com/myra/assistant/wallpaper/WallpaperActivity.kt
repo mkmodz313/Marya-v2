@@ -87,6 +87,7 @@ class WallpaperActivity : AppCompatActivity() {
         })
 
         cloud = WallpaperRepository.cached(this)   // instantly show what was synced last time
+        ThumbLoader.prewarm(this, (cloud + WallpaperItem.SAMPLES).map { it.thumbUrl })
         render()
     }
 
@@ -114,7 +115,10 @@ class WallpaperActivity : AppCompatActivity() {
             ui.post {
                 if (isDestroyed) return@post
                 loading.visibility = View.GONE
-                if (result != null) { cloud = result; showBanner(null) }
+                if (result != null) {
+                    cloud = result; showBanner(null)
+                    ThumbLoader.prewarm(this, result.map { it.thumbUrl })
+                }
                 else showBanner("Internet/Server problem - saved wallpapers dikh rahe hain.")
                 render()
             }
@@ -187,8 +191,6 @@ class WallpaperActivity : AppCompatActivity() {
             h.category.text = if (item.isBundled) "${item.category} · Sample" else item.category
             ThumbLoader.load(h.itemView.context, item.thumbUrl, h.thumb)
             h.itemView.setOnClickListener { onClick(item) }
-            h.itemView.alpha = 0f
-            h.itemView.animate().alpha(1f).setDuration(240).start()
         }
     }
 }

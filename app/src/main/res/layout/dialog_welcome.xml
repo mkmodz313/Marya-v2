@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="false"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/wlCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_welcome_card"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/wlCrown"
+                android:layout_width="64dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="-10dp"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_crown_gold" />
+
+            <FrameLayout
+                android:layout_width="132dp"
+                android:layout_height="132dp">
+
+                <View
+                    android:id="@+id/wlRing"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/bg_welcome_ring" />
+
+                <ImageView
+                    android:id="@+id/wlPortrait"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:contentDescription="MKMODZ AI"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/welcome_portrait" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:fontFamily="sans-serif"
+                android:text="Welcome to"
+                android:textColor="#FFFFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/wlTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-4dp"
+                android:fontFamily="sans-serif-black"
+                android:includeFontPadding="false"
+                android:text="MKMODZ"
+                android:textColor="#FFFFC933"
+                android:textSize="40sp"
+                android:textStyle="italic"
+                android:shadowColor="#99FF4FD8"
+                android:shadowRadius="14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_welcome_pill"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="22dp"
+                android:paddingTop="6dp"
+                android:paddingRight="22dp"
+                android:paddingBottom="6dp"
+                android:text="✦  AI Assistant  ✦"
+                android:textColor="#FFFFFFFF"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_welcome_msg"
+                android:gravity="center"
+                android:lineSpacingExtra="3dp"
+                android:padding="14dp"
+                android:text="Hi! I’m your MKMODZ AI Assistant ♡\nAsk me anything, I’m here to help you!"
+                android:textColor="#FFFFFFFF"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_welcome_tile"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💬" android:textSize="22sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Chat with AI" android:textColor="#FFFFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Get instant answers" android:textColor="#FFFF9CEB" android:textSize="11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_welcome_tile"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="💡" android:textSize="22sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Creative Ideas" android:textColor="#FFFFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="For your projects" android:textColor="#FFFF9CEB" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_welcome_tile"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🪄" android:textSize="22sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Useful Tools" android:textColor="#FFFFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Explore amazing tools" android:textColor="#FFFF9CEB" android:textSize="11sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_welcome_tile"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⭐" android:textSize="22sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Premium Support" android:textColor="#FFFFFFFF" android:textSize="13sp" android:textStyle="bold"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Always here for you" android:textColor="#FFFF9CEB" android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/wlJoin"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_btn_whatsapp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_whatsapp_channel" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="Join our WhatsApp Channel"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/wlStart"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_neon_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="▶  Start Chat"
+                android:textColor="#FFFFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/wlDontShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:buttonTint="#FFFF4FD8"
+                android:text="Dobara mat dikhao"
+                android:textColor="#CCFFFFFF"
+                android:textSize="13sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageButton
+        android:id="@+id/wlClose"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/bg_circle_dark"
+        android:contentDescription="Close"
+        android:padding="10dp"
+        android:src="@drawable/ic_close"
+        android:tint="#FFFFFFFF" />
+</FrameLayout>

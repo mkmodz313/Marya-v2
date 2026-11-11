@@ -32,3 +32,19 @@
 - utils/ApiKeys.kt: built-in default Gemini key (user's own key in Settings overrides it)
 - Home bottom card: Chat · Voice · Wallpaper (Settings = top gear)
 - Girlfriend Mode switch, Charging announce, Message announce (utils/Announcer.kt, service/MessageNotificationListener.kt)
+
+## Fix round (wallpaper cache / charging / crash)
+- wallpaper/ThumbLoader.kt: persistent disk cache (filesDir/thumbs) + prewarm -> seen wallpapers show instantly after app restart; WallpaperActivity: prewarm + no fade-in delay
+- MyraApp.kt (new, registered in manifest): crash guard (background-thread + main-loop exceptions logged to files/crash.log instead of closing the app), charging receiver, thumbnail prewarm
+- utils/ChargingWatcher.kt (new) + utils/Announcer.kt: charging announce with battery %, TTS_SERVICE <queries> added (TTS was blocked on Android 11+), English fallback if no Hindi voice
+- ForegroundVoiceService / MainActivity / BootReceiver: no crash when mic permission missing or background start is refused
+
+## Fix round 2 (calls + stronger crash protection)
+- control/CallControl.kt (new): answer call (TelecomManager + accessibility fallback), reject/end, speaker on/off, "talk on the phone" mode (answer + speaker + MYRA talks to caller)
+- PhoneControl: spoken fast path (call utha / phone pe baat karo / call kaat do ...) + tools answer_call, talk_on_call, reject_call, end_call, call_speaker; Gemini declarations + system prompt lines
+- PermissionUtils: ANSWER_PHONE_CALLS is now requested (it was declared but never asked -> answering could never work)
+- Crash: coroutine exception handlers, try/catch around service start/init, overlay/call services safe startForeground, largeHeap, main-thread guard also swallows coroutine errors
+
+## Welcome dialog
+- ui/main/WelcomeDialog.kt + layout/dialog_welcome.xml + drawables (bg_welcome_*, ic_crown_gold, ic_whatsapp_channel) + drawable-nodpi/welcome_portrait.jpg
+- Neon "Welcome to MKMODZ - AI Assistant" card with WhatsApp channel button (https://whatsapp.com/channel/0029VbDRuV990x2tlVt0FW2Y), shown on every fresh app start after permissions, hidden once 'Dobara mat dikhao' is ticked

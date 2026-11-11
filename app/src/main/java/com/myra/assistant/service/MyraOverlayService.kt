@@ -32,7 +32,13 @@ class MyraOverlayService : Service() {
         super.onCreate()
         isRunning = true
         createNotificationChannel()
-        startForeground(NOTIF_ID, buildNotification())
+        try {
+            startForeground(NOTIF_ID, buildNotification())
+        } catch (e: Exception) {
+            isRunning = false
+            stopSelf()
+            return
+        }
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
     }
 

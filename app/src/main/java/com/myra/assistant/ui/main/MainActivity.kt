@@ -99,11 +99,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupAssistant() {
-        PermissionUtils.requestMissing(this, PERM_CODE)
-        observeViewModel()
-        observeVoiceState()
+        try { PermissionUtils.requestMissing(this, PERM_CODE) } catch (e: Exception) { Logger.e(TAG, "perm: ${e.message}") }
+        try { observeViewModel() } catch (e: Exception) { Logger.e(TAG, "vm: ${e.message}") }
+        try { observeVoiceState() } catch (e: Exception) { Logger.e(TAG, "voice state: ${e.message}") }
         startVoiceService()
-        checkAccessibility()
+        try { checkAccessibility() } catch (e: Exception) { Logger.e(TAG, "a11y: ${e.message}") }
+        // Welcome dialog: right away if no permission prompts are pending, otherwise after they are answered
+        if (PermissionUtils.getMissingPermissions(this).isEmpty()) showWelcome()
+    }
+
+    private fun showWelcome() {
+        window.decorView.postDelayed({ try { WelcomeDialog.showIfNeeded(this) } catch (_: Throwable) {} }, 350)
     }
 
     private fun initViews() {
@@ -224,8 +230,17 @@ class MainActivity : AppCompatActivity() {
             addBotMessage("⚠️ API Key required. Please go to Settings → Enter Gemini API Key.")
             return
         }
-        ContextCompat.startForegroundService(this, Intent(this, ForegroundVoiceService::class.java))
-        Logger.d(TAG, "Voice service started")
+        // Android 14+: a microphone foreground service may only start once RECORD_AUDIO is granted (else it crashes)
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            Logger.d(TAG, "Mic permission pending - voice service will start after it is granted")
+            return
+        }
+        try {
+            ContextCompat.startForegroundService(this, Intent(this, ForegroundVoiceService::class.java))
+            Logger.d(TAG, "Voice service started")
+        } catch (e: Exception) {
+            Logger.e(TAG, "Could not start voice service: ${e.message}")
+        }
     }
 
     private fun checkAccessibility() {
@@ -269,11 +284,13 @@ class MainActivity : AppCompatActivity() {
         avatarStage.start()
         waveformView.start()
         ambientFx.start()
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(responseReceiver, IntentFilter("MYRA_RESPONSE"), Context.RECEIVER_NOT_EXPORTED)
-        } else {
-            registerReceiver(responseReceiver, IntentFilter("MYRA_RESPONSE"))
-        }
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                registerReceiver(responseReceiver, IntentFilter("MYRA_RESPONSE"), Context.RECEIVER_NOT_EXPORTED)
+            } else {
+                registerReceiver(responseReceiver, IntentFilter("MYRA_RESPONSE"))
+            }
+        } catch (e: Exception) { Logger.e(TAG, "receiver: ${e.message}") }
     }
 
     override fun onPause() {
@@ -294,7 +311,9 @@ class MainActivity : AppCompatActivity() {
         requestCode: Int, permissions: Array<String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == PERM_CODE && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+        if (requestCode == PERM_CODE) showWelcome()
+        if (requestCode == PERM_CODE &&
+            ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED) {
             startVoiceService()
         }
     }

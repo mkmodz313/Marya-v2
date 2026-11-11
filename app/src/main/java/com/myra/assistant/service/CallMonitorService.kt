@@ -40,7 +40,13 @@ class CallMonitorService : Service(), TextToSpeech.OnInitListener {
         super.onCreate()
 
         createNotificationChannel()
-        startForegroundService()
+        try {
+            startForegroundService()
+        } catch (e: Exception) {
+            Log.e(TAG, "startForeground failed: ${e.message}")
+            stopSelf()
+            return
+        }
 
         tts = TextToSpeech(this, this)
 
@@ -187,13 +193,14 @@ class CallMonitorService : Service(), TextToSpeech.OnInitListener {
     override fun onBind(intent: Intent?): IBinder? = null
 
     override fun onDestroy() {
-        telephonyManager?.listen(
-            phoneListener,
-            PhoneStateListener.LISTEN_NONE
-        )
-
-        tts?.stop()
-        tts?.shutdown()
+        try {
+            telephonyManager?.listen(
+                phoneListener,
+                PhoneStateListener.LISTEN_NONE
+            )
+            tts?.stop()
+            tts?.shutdown()
+        } catch (_: Exception) {}
 
         super.onDestroy()
     }
