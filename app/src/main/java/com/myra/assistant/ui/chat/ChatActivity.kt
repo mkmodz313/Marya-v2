@@ -173,7 +173,7 @@ class ChatActivity : AppCompatActivity() {
     }
 
     private fun sendToGemini(text: String, attempt: Int) {
-        val key = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+        val key = com.myra.assistant.utils.ApiKeys.gemini(this)
         if (key.isEmpty()) {
             ChatRepository.addAssistant("⚠️ API Key required. Settings → Gemini API Key daalein.")
             return

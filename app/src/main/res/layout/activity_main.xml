@@ -357,7 +357,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- ═════════════ FIXED 4-BUTTON 3D CARD: CHAT · WALLPAPER · VOICE (big) · SETTINGS ═════════════ -->
+    <!-- ═════════════ FIXED 3D CARD: CHAT · VOICE (big) · WALLPAPER (settings = top gear icon) ═════════════ -->
     <FrameLayout
         android:id="@+id/navWrap"
         android:layout_width="0dp"
@@ -419,6 +419,12 @@
                     android:textSize="11sp"/>
             </LinearLayout>
 
+            <!-- room for the big centre VOICE button -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.25"/>
+
             <LinearLayout
                 android:id="@+id/navWallpaper"
                 android:layout_width="0dp"
@@ -452,49 +458,6 @@
                     android:shadowDy="0"
                     android:shadowRadius="6"
                     android:text="Wallpaper"
-                    android:textColor="@color/neon_white"
-                    android:textSize="11sp"/>
-            </LinearLayout>
-
-            <!-- room for the big centre VOICE button -->
-            <View
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1.25"/>
-
-            <LinearLayout
-                android:id="@+id/navSettings"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="14dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_nav_btn_3d"
-                android:clickable="true"
-                android:contentDescription="Settings"
-                android:focusable="true"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:importantForAccessibility="no"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_settings"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:shadowColor="#FFFF2BD6"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="6"
-                    android:text="Settings"
                     android:textColor="@color/neon_white"
                     android:textSize="11sp"/>
             </LinearLayout>

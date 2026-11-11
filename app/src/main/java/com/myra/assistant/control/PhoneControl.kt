@@ -45,7 +45,7 @@ object PhoneControl {
 
     private val NOT_HANDLED = Outcome(false)
 
-    private data class Pending(val number: String, val text: String, val createdAt: Long)
+    private data class Pending(val number: String, val text: String, val createdAt: Long, val inChat: Boolean = false)
 
     private enum class Target(val label: String) {
         WHATSAPP("WhatsApp"), YOUTUBE("YouTube"), GOOGLE("Google"), CHROME("Chrome"),
@@ -212,6 +212,17 @@ object PhoneControl {
 
     private fun confirmSend(ctx: Context, p: Pending): Outcome {
         pending = null
+        if (p.inChat) {
+            // reply already typed into the open WhatsApp chat: just press WhatsApp's own Send button
+            if (!AccessibilityHelperService.isEnabled(ctx)) {
+                return Outcome(true, "Reply WhatsApp mein typed hai. Accessibility band hai, Send aap khud dabayein.", false)
+            }
+            scope.launch {
+                val ok = tapWhatsAppSend()
+                ChatRepository.addAssistant(if (ok) "✅ Send dabaa diya." else "⚠️ Send button nahi dabaa saki, aap dabayein.")
+            }
+            return Outcome(true, "Okay dear! Send dabane ki koshish kar rahi hoon…")
+        }
         val pkg = whatsAppPackage(ctx)
             ?: return Outcome(true, "WhatsApp installed nahi hai dear.", false)
         val uri = Uri.parse("https://wa.me/${p.number}?text=${Uri.encode(p.text)}")
@@ -317,7 +328,7 @@ object PhoneControl {
     }
 
     // ─────────────────────────────────────────────────────────────────────────────────────────────
-    private fun start(ctx: Context, intent: Intent): Boolean {
+    internal fun start(ctx: Context, intent: Intent): Boolean {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         val ok = try {
             ctx.startActivity(intent)
@@ -411,6 +422,28 @@ object PhoneControl {
     // ─────────────────────────────────────────────────────────────────────────────────────────────
     // Tool calls coming from the live voice model (Gemini function calling)
     // ─────────────────────────────────────────────────────────────────────────────────────────────
+    @Synchronized
+    fun setInChatPending(text: String) {
+        pending = Pending("", text, System.currentTimeMillis(), true)
+    }
+
+    private fun hasInChatPending(): Boolean = pending?.inChat == true
+
+    private fun userSaidYes(): Boolean {
+        if (!GeminiWebSocketClient.extrasEnabled) return true   // no transcript available: the model heard the user
+        val words = normalize(lastHeard).split(" ").filter { it.isNotEmpty() }
+        return words.size <= 4 && words.any { it in YES_WORDS } && words.none { it in NO_WORDS }
+    }
+
+    /** Sends the reply that was typed into the open WhatsApp chat (only after the user's explicit yes). */
+    private suspend fun confirmInChatSend(): String {
+        val p = synchronized(this) { pending?.takeIf { it.inChat } } ?: return "failed: there is no prepared reply (it may already have been sent or cancelled)"
+        if (!userSaidYes()) return "failed: the user has not clearly confirmed yet. Ask them to say yes."
+        synchronized(this) { pending = null }
+        return if (tapWhatsAppSend()) "success: Send button pressed (reply: ${p.text.take(60)})"
+        else "failed: could not press WhatsApp's Send button. Tell the user to press Send themselves."
+    }
+
     suspend fun executeTool(context: Context, name: String, args: JSONObject): String {
         val ctx = context.applicationContext
         fun res(o: Outcome) = (if (o.success) "success: " else "failed: ") + o.reply
@@ -438,7 +471,19 @@ object PhoneControl {
                     if (o.success) "prepared: The message is NOT sent yet. Ask the user to confirm (yes/no) and only then call whatsapp_send_confirmed. Never say it was sent before that."
                     else res(o)
                 }
-                "whatsapp_send_confirmed" -> synchronized(this) {
+                "whatsapp_open_chat_by_name" -> WhatsAppAutomation.openChatByName(ctx, args.optString("contact_name"))
+                "whatsapp_read_messages" -> WhatsAppAutomation.readMessages(args.optString("count").toIntOrNull() ?: 5)
+                "whatsapp_play_voice_message" -> WhatsAppAutomation.playVoiceMessage()
+                "whatsapp_prepare_reply" -> WhatsAppAutomation.prepareReply(args.optString("message").trim())
+                "ui_read_screen" -> UiAutomation.readScreen()
+                "ui_click" -> UiAutomation.click(args.optString("text"), false)
+                "ui_click_confirmed" ->
+                    if (!userSaidYes()) "failed: the user has not clearly confirmed yet. Ask them to say yes."
+                    else UiAutomation.click(args.optString("text"), true)
+                "ui_type" -> UiAutomation.type(args.optString("text"))
+                "ui_scroll" -> UiAutomation.scroll(args.optString("direction"))
+                "ui_press" -> UiAutomation.press(args.optString("key"))
+                "whatsapp_send_confirmed" -> if (hasInChatPending()) confirmInChatSend() else synchronized(this) {
                     val p = pending ?: return@synchronized "failed: there is no prepared message (or it was already sent/cancelled)"
                     if (GeminiWebSocketClient.extrasEnabled) {
                         val words = normalize(lastHeard).split(" ").filter { it.isNotEmpty() }

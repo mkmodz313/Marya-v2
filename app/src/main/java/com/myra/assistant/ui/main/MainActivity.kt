@@ -147,15 +147,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        // Fixed 4-button navigation card: CHAT · WALLPAPER · VOICE (big, centre = micButton above) · SETTINGS
+        // Fixed 4-button navigation card: CHAT · VOICE (big, centre = micButton above) · WALLPAPER
         bindNavButton(findViewById(R.id.navChat)) {
             startActivity(Intent(this, ChatActivity::class.java))
         }
         bindNavButton(findViewById(R.id.navWallpaper)) {
             startActivity(Intent(this, WallpaperActivity::class.java))
-        }
-        bindNavButton(findViewById(R.id.navSettings)) {
-            startActivity(Intent(this, SettingsActivity::class.java))
         }
         bindNavButton(micButton) { /* click handled by the existing mic listener above */ }
     }
@@ -222,7 +219,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startVoiceService() {
-        val apiKey = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+        val apiKey = com.myra.assistant.utils.ApiKeys.gemini(this)
         if (apiKey.isEmpty()) {
             addBotMessage("⚠️ API Key required. Please go to Settings → Enter Gemini API Key.")
             return

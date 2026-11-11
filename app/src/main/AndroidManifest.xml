@@ -151,6 +151,17 @@
                 android:resource="@xml/myra_wallpaper"/>
         </service>
 
+        <!-- MESSAGE ANNOUNCE (notification access) -->
+        <service
+            android:name=".service.MessageNotificationListener"
+            android:exported="true"
+            android:label="MYRA message announce"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+
         <!-- ACCESSIBILITY SERVICE -->
         <service
             android:name=".service.AccessibilityHelperService"

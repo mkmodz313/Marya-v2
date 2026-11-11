@@ -27,3 +27,8 @@
 - Settings & home 3D redesign, 4-button bottom card
 
 - Backend switched from Firebase to Supabase (admin/AdminApi.kt, wallpaper/CloudConfig.kt, WallpaperRepository.kt, backend/supabase_setup.sql)
+- control/UiAutomation.kt + control/WhatsAppAutomation.kt: in-app control through the Accessibility Service (read screen, tap, type, scroll, back/home) and WhatsApp by saved contact name (open chat, read messages, play voice message, type reply; send only after explicit yes); matching Gemini function declarations
+- Faster replies: Gemini setup tuned (thinking budget 0, quicker end-of-speech detection) with automatic fallback
+- utils/ApiKeys.kt: built-in default Gemini key (user's own key in Settings overrides it)
+- Home bottom card: Chat · Voice · Wallpaper (Settings = top gear)
+- Girlfriend Mode switch, Charging announce, Message announce (utils/Announcer.kt, service/MessageNotificationListener.kt)

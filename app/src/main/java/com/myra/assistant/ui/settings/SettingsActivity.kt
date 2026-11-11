@@ -159,6 +159,29 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
 
+        // Girlfriend mode + announcements
+        val sp2 = getSharedPreferences(com.myra.assistant.utils.Constants.PREFS_NAME, MODE_PRIVATE)
+        findViewById<Switch>(R.id.girlfriendSwitch).apply {
+            isChecked = sp2.getBoolean("girlfriend_mode", false)
+            setOnCheckedChangeListener { _, on ->
+                sp2.edit().putBoolean("girlfriend_mode", on).apply()
+                com.myra.assistant.services.ForegroundVoiceService.instance?.reconnectGemini()
+                Toast.makeText(this@SettingsActivity, if (on) "💖 Girlfriend Mode ON" else "Girlfriend Mode OFF", Toast.LENGTH_SHORT).show()
+            }
+        }
+        findViewById<Switch>(R.id.chargingSwitch).apply {
+            isChecked = sp2.getBoolean("charging_announce", true)
+            setOnCheckedChangeListener { _, on -> sp2.edit().putBoolean("charging_announce", on).apply() }
+        }
+        findViewById<Switch>(R.id.messageSwitch).apply {
+            isChecked = sp2.getBoolean("message_announce", true)
+            setOnCheckedChangeListener { _, on -> sp2.edit().putBoolean("message_announce", on).apply() }
+        }
+        findViewById<View>(R.id.notifAccessBtn).setOnClickListener {
+            try { startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS)) }
+            catch (_: Exception) { Toast.makeText(this, "Settings khul nahi saki", Toast.LENGTH_SHORT).show() }
+        }
+
         findViewById<View>(R.id.adminPanelCard).setOnClickListener {
             startActivity(Intent(this, com.myra.assistant.admin.AdminLoginActivity::class.java))
         }
@@ -326,6 +349,9 @@ class SettingsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         updateStatus()
+        val on = androidx.core.app.NotificationManagerCompat.getEnabledListenerPackages(this).contains(packageName)
+        findViewById<TextView>(R.id.notifAccessStatus).text =
+            if (on) "✅ Notification access ON - message announce chalega" else "⚠️ Notification access OFF - message announce ke liye allow karein"
     }
 
     companion object {

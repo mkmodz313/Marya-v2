@@ -74,7 +74,7 @@
                     android:id="@+id/apiKeyInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Enter your Gemini API key..."
+                    android:hint="Optional - khali chhodein to MYRA ki default key chalegi"
                     android:textColor="#FFF"
                     android:textColorHint="#555"
                     android:background="@drawable/bg_input_field"
@@ -235,6 +235,66 @@
                     android:textSize="14sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_3d_hot"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="💖 Girlfriend Mode" android:textColor="#FFFFA6EE" android:textSize="15sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ON karein to MYRA girlfriend ki tarah pyaar se baat karegi" android:textColor="#FFCFA6D6" android:textSize="11sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/girlfriendSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card_3d"
+                android:orientation="vertical"
+                android:padding="20dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="🔋 Charging announce" android:textColor="#FFFFA6EE" android:textSize="15sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Charger lagne par MYRA batayegi" android:textColor="#FFCFA6D6" android:textSize="11sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/chargingSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center_vertical" android:orientation="horizontal">
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:fontFamily="sans-serif-medium" android:text="💬 Message announce" android:textColor="#FFFFA6EE" android:textSize="15sp"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Message aane par kiska aaya, MYRA batayegi" android:textColor="#FFCFA6D6" android:textSize="11sp"/>
+                    </LinearLayout>
+                    <Switch android:id="@+id/messageSwitch" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <Button android:id="@+id/notifAccessBtn" android:layout_width="match_parent" android:layout_height="50dp" android:layout_marginTop="14dp" android:background="@drawable/bg_btn_3d" android:stateListAnimator="@null" android:text="Notification access allow karein" android:textAllCaps="false" android:textColor="#FFFFFFFF" android:textSize="14sp"/>
+                <TextView android:id="@+id/notifAccessStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:textColor="#FFFFD6F8" android:textSize="12sp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
 
         <!-- Prime Contact Card -->
         <androidx.cardview.widget.CardView

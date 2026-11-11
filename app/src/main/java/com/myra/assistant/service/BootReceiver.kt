@@ -11,7 +11,7 @@ class BootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action == Intent.ACTION_BOOT_COMPLETED) {
             val prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
-            val apiKey = prefs.getString(Constants.KEY_API_KEY, "") ?: ""
+            val apiKey = com.myra.assistant.utils.ApiKeys.gemini(context)
             if (apiKey.isNotEmpty()) {
                 ContextCompat.startForegroundService(context, Intent(context, ForegroundVoiceService::class.java))
             }

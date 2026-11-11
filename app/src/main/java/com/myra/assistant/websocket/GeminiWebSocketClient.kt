@@ -54,6 +54,10 @@ class GeminiWebSocketClient(
 
         /** Function calling (open apps / YouTube / WhatsApp by voice). Switched off automatically if the server rejects the setup. */
         @Volatile var toolsEnabled: Boolean = true
+
+        /** Faster answers: no hidden "thinking" delay + quicker end-of-speech detection. Auto-disabled if the server rejects them. */
+        @Volatile var thinkingTuning: Boolean = true
+        @Volatile var vadTuning: Boolean = true
         @Volatile private var setupRejections = 0
 
         fun resetSession() { resumptionHandle = null }
@@ -122,15 +126,18 @@ class GeminiWebSocketClient(
         // Network drops (socket never opened) must NOT disable features; only a rejected setup counts.
         if (socketOpened && !isSetupComplete) {
             setupRejections++
-            if (setupRejections >= 2) {
+            val threshold = if (thinkingTuning || vadTuning) 1 else 2
+            if (setupRejections >= threshold) {
                 setupRejections = 0
-                if (toolsEnabled) {
-                    Log.w(TAG, "Setup rejected twice - disabling function calling")
-                    toolsEnabled = false
-                } else if (extrasEnabled) {
-                    Log.w(TAG, "Setup rejected twice - disabling transcription/resumption")
-                    extrasEnabled = false
-                    resumptionHandle = null
+                when {
+                    thinkingTuning -> { Log.w(TAG, "Setup rejected - disabling thinking tuning"); thinkingTuning = false }
+                    vadTuning -> { Log.w(TAG, "Setup rejected - disabling VAD tuning"); vadTuning = false }
+                    toolsEnabled -> { Log.w(TAG, "Setup rejected twice - disabling function calling"); toolsEnabled = false }
+                    extrasEnabled -> {
+                        Log.w(TAG, "Setup rejected twice - disabling transcription/resumption")
+                        extrasEnabled = false
+                        resumptionHandle = null
+                    }
                 }
             }
         }
@@ -142,6 +149,7 @@ class GeminiWebSocketClient(
                 put("model", Constants.GEMINI_MODEL)
                 put("generationConfig", JSONObject().apply {
                     put("responseModalities", JSONArray().put("AUDIO"))
+                    if (thinkingTuning) put("thinkingConfig", JSONObject().put("thinkingBudget", 0))
                     put("speechConfig", JSONObject().apply {
                         put("voiceConfig", JSONObject().apply {
                             put("prebuiltVoiceConfig", JSONObject().apply {
@@ -153,6 +161,11 @@ class GeminiWebSocketClient(
                 put("systemInstruction", JSONObject().apply {
                     put("parts", JSONArray().put(JSONObject().put("text", systemPrompt)))
                 })
+                if (vadTuning) put("realtimeInputConfig", JSONObject().put("automaticActivityDetection", JSONObject()
+                    .put("startOfSpeechSensitivity", "START_SENSITIVITY_HIGH")
+                    .put("endOfSpeechSensitivity", "END_SENSITIVITY_HIGH")
+                    .put("prefixPaddingMs", 40)
+                    .put("silenceDurationMs", 600)))
                 if (toolsEnabled && onToolCall != null) put("tools", buildTools())
                 if (extrasEnabled) {
                     put("inputAudioTranscription", JSONObject())
@@ -164,7 +177,7 @@ class GeminiWebSocketClient(
             })
         }
         ws.send(setup.toString())
-        Log.d(TAG, "Setup sent ✅ (extras=$extrasEnabled, tools=$toolsEnabled, resumed=${resumptionHandle != null})")
+        Log.d(TAG, "Setup sent ✅ (extras=$extrasEnabled, tools=$toolsEnabled, thinking=$thinkingTuning, vad=$vadTuning, resumed=${resumptionHandle != null})")
     }
 
     private fun fn(name: String, description: String, vararg params: Pair<String, String>): JSONObject {
@@ -195,6 +208,22 @@ class GeminiWebSocketClient(
             .put(fn("whatsapp_prepare_message", "Prepare (NOT send) a WhatsApp message for the chat opened last. After this, ask the user to confirm.",
                 "message" to "The exact message text"))
             .put(fn("whatsapp_send_confirmed", "Send the prepared WhatsApp message. Call ONLY after the user clearly said yes/confirm."))
+            .put(fn("whatsapp_open_chat_by_name", "Open the WhatsApp chat of a saved contact by the name the user saved it under. Takes a few seconds.",
+                "contact_name" to "Contact name exactly as the user says it"))
+            .put(fn("whatsapp_read_messages", "Read the latest visible messages of the currently open WhatsApp chat so you can read them out loud or answer questions about them.",
+                "count" to "How many recent messages, e.g. 5"))
+            .put(fn("whatsapp_play_voice_message", "Play the latest visible voice message in the open WhatsApp chat."))
+            .put(fn("whatsapp_prepare_reply", "Type a reply into the open WhatsApp chat box WITHOUT sending it. Then ask the user to confirm and call whatsapp_send_confirmed.",
+                "message" to "Reply text"))
+            .put(fn("ui_read_screen", "Read what is on the screen of the app that is currently open (labels, buttons [tap], inputs [input]). Use this before and after tapping to see what happened."))
+            .put(fn("ui_click", "Tap an option/button/tab/item on the current screen by its visible text or description.",
+                "text" to "Visible label to tap"))
+            .put(fn("ui_click_confirmed", "Tap a sensitive option (Send, Pay, Buy, Delete, Confirm...). ONLY after the user clearly said yes.",
+                "text" to "Visible label to tap"))
+            .put(fn("ui_type", "Type text into the focused or first text box on screen (search bars, message boxes). Never passwords.",
+                "text" to "Text to type"))
+            .put(fn("ui_scroll", "Scroll the current screen.", "direction" to "up or down"))
+            .put(fn("ui_press", "Press a system key.", "key" to "back, home, recents or notifications"))
             .put(fn("run_command", "Other device actions. Command is one of: VOLUME_UP, VOLUME_DOWN, FLASHLIGHT_ON, FLASHLIGHT_OFF, CALL <name>, WHATSAPP_CALL <name>.",
                 "command" to "The command"))
         )

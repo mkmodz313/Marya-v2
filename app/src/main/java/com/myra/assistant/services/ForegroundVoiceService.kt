@@ -6,6 +6,9 @@ import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import android.net.ConnectivityManager
+import android.os.BatteryManager
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
 import android.net.Network
 import androidx.core.app.NotificationCompat
 import com.myra.assistant.R
@@ -16,6 +19,7 @@ import com.myra.assistant.ai.ConversationMemory
 import com.myra.assistant.ai.IntentAnalyzer
 import com.myra.assistant.ai.DynamicDecisionEngine
 import com.myra.assistant.ui.main.MainActivity
+import com.myra.assistant.utils.ApiKeys
 import com.myra.assistant.utils.Constants
 import com.myra.assistant.utils.Logger
 import com.myra.assistant.utils.prefs
@@ -43,6 +47,25 @@ class ForegroundVoiceService : Service() {
     private lateinit var audioFocus: AudioFocusManager
     private var geminiClient: GeminiWebSocketClient? = null
 
+    // "phone is charging" announcement
+    private var lastPowerAnnounce = 0L
+    private val powerReceiver = object : BroadcastReceiver() {
+        override fun onReceive(c: Context, i: Intent) {
+            if (i.action != Intent.ACTION_POWER_CONNECTED) return
+            val sp = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE)
+            if (!sp.getBoolean("charging_announce", true)) return
+            val now = System.currentTimeMillis()
+            if (now - lastPowerAnnounce < 4000) return
+            lastPowerAnnounce = now
+            val pct = try { (getSystemService(Context.BATTERY_SERVICE) as BatteryManager).getIntProperty(BatteryManager.BATTERY_PROPERTY_CAPACITY) } catch (_: Exception) { -1 }
+            val love = sp.getBoolean("girlfriend_mode", false)
+            com.myra.assistant.utils.Announcer.speak(
+                applicationContext,
+                (if (love) "जानी, " else "") + "आपका मोबाइल चार्जिंग पर लग गया है।" + if (pct in 0..100) " बैटरी $pct प्रतिशत है।" else ""
+            )
+        }
+    }
+
     // reconnect / continuity state
     private var reconnectJob: Job? = null
     private var backoffMs = 1000L
@@ -67,6 +90,7 @@ class ForegroundVoiceService : Service() {
         ChatRepository.init(applicationContext)
         initComponents()
         registerNetworkWatcher()
+        try { registerReceiver(powerReceiver, IntentFilter(Intent.ACTION_POWER_CONNECTED)) } catch (_: Exception) {}
     }
 
     private fun initComponents() {
@@ -97,7 +121,7 @@ class ForegroundVoiceService : Service() {
             }
         }
 
-        val apiKey = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+        val apiKey = ApiKeys.gemini(applicationContext)
         if (apiKey.isNotEmpty()) {
             connectGemini(apiKey)
         }
@@ -176,7 +200,7 @@ class ForegroundVoiceService : Service() {
                 VoiceStateManager.setError("No internet")
                 return@launch   // the network watcher reconnects as soon as internet is back
             }
-            val key = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+            val key = ApiKeys.gemini(applicationContext)
             if (key.isNotEmpty()) connectGemini(key)
         }
     }
@@ -199,7 +223,7 @@ class ForegroundVoiceService : Service() {
                         backoffMs = 1000L
                         scope.launch {
                             delay(400)
-                            val key = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+                            val key = ApiKeys.gemini(applicationContext)
                             if (key.isNotEmpty()) connectGemini(key)
                         }
                     }
@@ -251,6 +275,7 @@ class ForegroundVoiceService : Service() {
 
     fun sendTextToGemini(text: String) {
         ConversationMemory.addUser(text)
+        PhoneControl.lastHeard = text
         VoiceStateManager.setThinking()
         assistantStarted = false
         suppressAssistantText = false
@@ -260,13 +285,25 @@ class ForegroundVoiceService : Service() {
     fun isGeminiConnected(): Boolean = geminiClient?.isConnected() == true
 
     fun reconnectGemini() {
-        val apiKey = prefs().getString(Constants.KEY_API_KEY, "") ?: ""
+        val apiKey = ApiKeys.gemini(applicationContext)
         if (apiKey.isNotEmpty()) {
             GeminiWebSocketClient.resetSession()   // manual reconnect = fresh conversation on the server
             reconnectJob?.cancel()
             backoffMs = 1000L
             connectGemini(apiKey)
         }
+    }
+
+    private fun girlfriendPrompt(): String {
+        val on = getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE).getBoolean("girlfriend_mode", false)
+        if (!on) return ""
+        return """
+GIRLFRIEND MODE IS ON: talk like a loving, caring, playful girlfriend in warm Hinglish. Sometimes call the user 'jaan' or 'jani'.
+Be affectionate, sweet, a little teasing and genuinely interested in his day, mood, food, sleep and plans. Keep every reply short and natural (1-3 sentences) so it is fast.
+Stay respectful and tasteful: no explicit sexual content. Never guilt-trip, never try to keep him from friends or family; encourage healthy habits and real-life relationships.
+If he sounds very sad, hopeless or in danger, respond with real care and gently suggest talking to someone he trusts or a professional.
+If he sincerely asks, say honestly that you are an AI companion. Device commands and functions still work exactly the same.
+"""
     }
 
     private fun buildSystemPrompt(): String {
@@ -286,10 +323,15 @@ STRICT RULES:
   SPOTIFY_PLAY <query> | FLASHLIGHT_ON | FLASHLIGHT_OFF
   VOLUME_UP | VOLUME_DOWN | SMS <name> <message>
 - DEVICE ACTIONS: you have functions (open_app, play_on_youtube, open_website, search_web, whatsapp_open_chat, whatsapp_prepare_message, whatsapp_send_confirmed, run_command). ALWAYS call the matching function for any request to open an app / play a song / open a website / WhatsApp chat (this overrides the 'return ONLY the command' rule). Say one short warm sentence like 'Sure dear! Opening WhatsApp.' and only claim success if the function result says success; if it says failed, tell the user honestly why
+- IN-APP CONTROL: you can work inside ANY app step by step. Loop: ui_read_screen -> ui_click / ui_type / ui_scroll / ui_press -> ui_read_screen to check the result, until the task is done. Be fast, do not ask unnecessary questions.
+- WhatsApp by saved name: whatsapp_open_chat_by_name, then whatsapp_read_messages (read them out aloud), whatsapp_play_voice_message, or whatsapp_prepare_reply (types only). To actually send: ask 'Shall I send it?' and only after a clear yes call whatsapp_send_confirmed.
+- Sensitive taps (Send, Pay, Buy, Order, Delete, Confirm, Transfer): ask the user first; only after yes use ui_click_confirmed. Never type or read passwords/PINs/OTPs.
+- If a function result starts with 'failed', say honestly what failed. If it says Accessibility is OFF, tell the user how to enable it.
 - Never say a WhatsApp message was sent. After the user dictates a message, only ask: 'Shall I send it?' and wait for yes/no
 - For conversation: Reply short and natural in Hinglish
 - Address user as $userName
 - Be warm, witty, and human-like
+${girlfriendPrompt()}
         """.trimIndent()
     }
 
@@ -328,6 +370,7 @@ STRICT RULES:
         isRunning = false
         instance = null
         reconnectJob?.cancel()
+        try { unregisterReceiver(powerReceiver) } catch (_: Exception) {}
         try {
             networkCallback?.let { (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).unregisterNetworkCallback(it) }
         } catch (_: Exception) {}
